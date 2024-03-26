@@ -1,9 +1,12 @@
 
+import Menu from '../Menu'
+import './header.css'
 
 function Header() {
     return(
         <header>
-            <h1>Cashing</h1>
+            <h1 className='logo'>Cashing</h1>
+            <Menu/>
         </header>
     )
 }

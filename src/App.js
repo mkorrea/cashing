@@ -1,14 +1,13 @@
+
 import './style.css'
 import Header from './components/Header'
-import Menu from './components/Menu'
 import Main from './components/Main'
+import RoutesApp from './routes';
 
 function App() {
   return (
     <div>
-      <Header />
-      <Menu />
-      <Main />
+      <RoutesApp/>
     </div>
   );
 }
