@@ -17,15 +17,14 @@ function Home() {
                      </Link>
                   </div>
                   <div className="box">
-                     <Link to="/finances">
-                     ⚙️<p>Settings</p>
+                     <Link to="">
+                        ⚙️<p>Settings</p>
                      </Link>
-                    </div>
+                  </div>
                   <div className="box"></div>
                   <div className="box"></div>
                </div>
             </div>
-
             <div className="text">
                <div className="text welcome">
                   <p>

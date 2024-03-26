@@ -11,10 +11,17 @@
     #5a636a
  */
 
+ @import url('https://fonts.googleapis.com/css2?family=Wix+Madefor+Text:ital,wght@0,400..800;1,400..800&display=swap');
+
  :root {
-    --background: #0d1f23;
+    --background: #132e35;
     --colorText: #fff; 
     --font: "Wix Madefor Text", sans-serif;
+}
+
+body {
+    background: url('../../images/bg.jpg') no-repeat fixed center center;
+    background-size: cover;
 }
 
 .container {

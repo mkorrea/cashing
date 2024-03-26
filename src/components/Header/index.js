@@ -1,14 +1,19 @@
-
-import Menu from '../Menu'
-import './header.css'
+import Menu from "../Menu";
+import { Link } from "react-router-dom";
+import "./header.css";
 
 function Header() {
-    return(
-        <header>
-            <h1 className='logo'>Cashing</h1>
-            <Menu/>
-        </header>
-    )
+   return (
+      <header>
+         <div className="logo">
+            <Link to="/">
+               <img src={require("../../images/icontp.png")} alt="img" />
+               <h1>Cashing</h1>
+            </Link>
+         </div>
+         <Menu />
+      </header>
+   );
 }
 
 export default Header;

@@ -29,10 +29,32 @@ header {
     box-shadow: 0px 5px 7px #0d1f2333;
 }
 
-.logo {
+.logo a {
+    display: flex;
+    text-decoration: none;
+}
+
+.logo img {
+    width: 50px;
+    margin-right: 20px;
+    transform: rotate(320deg);
+    transition: all .2s;
+}
+
+.logo img:hover {
+    transform: rotate(360deg);
+}
+
+.logo h1 {
     font-size: 42px;
     text-shadow: 2px 2px 3px #112123dd;
+    user-select: none;
+    cursor: pointer;
+    color: var(--colorText);
+    font-weight: bold;
 }
+
+
 
 .menu {
     display: flex;
