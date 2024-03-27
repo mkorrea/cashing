@@ -7,36 +7,70 @@ function Home() {
       <div>
          <Header />
 
-         <div className="container">
-            <div className="quick-access">
+         <main className="container">
+            <section>
+               <article className="container-login">
+                  <h2>Faça seu login ou registre-se!</h2>
+               </article>
+               <article className="container-welcome">
+                  <div className="text welcome">
+                     <p>
+                        <strong>Bem-vindo ao Cashing!</strong>
+                     </p>
+                     <p>
+                        Sabemos que gerenciar suas finanças pode ser desafiador,
+                        mas estamos aqui para tornar isso mais simples e
+                        eficiente para você. Com nossa plataforma intuitiva e
+                        fácil de usar, você poderá acompanhar seus gastos e
+                        ganhos financeiros de forma organizada e eficaz.
+                     </p>
+                  </div>
+               </article>
+               <div className="bg">
+               </div>
+            </section>
+
+            <section className="quick-access">
                <h2>Quick Access</h2>
                <div className="blocks">
                   <div className="box">
                      <Link to="/finances">
-                        📖<p>Finances</p>
+                        <img src={require("../../images/finances.png")} />
+                        <h2>Finances</h2>
+                        <p>
+                           Mantenha o controle dos seus rendimentos. Insira suas
+                           fontes de receita e acompanhe seu progresso em
+                           direção às suas metas financeiras.
+                        </p>
                      </Link>
                   </div>
                   <div className="box">
                      <Link to="">
-                        ⚙️<p>Settings</p>
+                        <img src={require("../../images/calculator.png")} />
+                        <h2>Calculator</h2>
+                        <p>
+                           Calcule seus objetivos financeiros em segundos!
+                           Descubra em quantos meses você pode alcançar sua meta
+                           de economia ao juntar um determinado valor
+                           mensalmente.
+                        </p>
                      </Link>
                   </div>
-                  <div className="box"></div>
-                  <div className="box"></div>
+                  <div className="box">
+                     <Link to="">
+                        <img src={require("../../images/gear.png")} />
+                        <h2>Settings</h2>
+                        <p>
+                           Personalize sua experiência! Ajuste as configurações
+                           do site de acordo com suas preferências individuais.
+                        </p>
+                     </Link>
+                  </div>
                </div>
-            </div>
-            <div className="text">
-               <div className="text welcome">
-                  <p>
-                     <strong>Bem-vindo ao Cashing!</strong>
-                  </p>
-                  <p>
-                     Sabemos que gerenciar suas finanças pode ser desafiador,
-                     mas estamos aqui para tornar isso mais simples e eficiente
-                     para você. Com nossa plataforma intuitiva e fácil de usar,
-                     você poderá acompanhar seus gastos e ganhos financeiros de
-                     forma organizada e eficaz.
-                  </p>
+            </section>
+
+            <section className="text">
+               <div className="text ">
                   <p>
                      Esqueça as planilhas complicadas e os sistemas confusos.{" "}
                      <strong> Cashing </strong> te permite registrar seus gastos
@@ -52,8 +86,8 @@ function Home() {
                      financeira mais saudável e equilibrada.
                   </p>
                </div>
-            </div>
-         </div>
+            </section>
+         </main>
       </div>
    );
 }
