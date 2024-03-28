@@ -2,28 +2,21 @@
     Main Content Home Page
 */
 
-/* 
-    #0d1f23
-    #132e35
-    #2d4a53
-    #69818d
-    #afb3b7
-    #5a636a
- */
-
  @import url('https://fonts.googleapis.com/css2?family=Wix+Madefor+Text:ital,wght@0,400..800;1,400..800&display=swap');
 
  :root {
+    --tom1: #0d1f23;
+    --mainColor: #132e35;
+    --tom3: #2d4a53;
+    --tom4: #69818d;
+    --tom5: #afb3b7;
+    --tom6: #5a636a;
     --background: #132e35;
-    --colorText: #fff; 
+    --textColor: #ffffff; 
     --font: "Wix Madefor Text", sans-serif;
 }
 
-body {
-    background: url('../../images/bg.jpg') no-repeat fixed center center;
-    background-size: cover;
-}
-
+/*
 main.container {
     max-width: 1600px;
     width: 100%;
@@ -36,11 +29,11 @@ main.container {
     transform: translateX(-50%);
 }
 
-section {
+ section {
     margin: 35px 0px;
     display: flex;
     justify-content: center;
-}
+
 
 .text{
     max-width: 40%;
@@ -51,6 +44,86 @@ section {
     justify-content: center;
     align-items: center;
 }
+} */
+
+/*  configurações gerais  */
+body {
+    background: url('../../images/bg.jpg') no-repeat fixed center center;
+    background-size: cover;
+}
+
+main {
+    width: 90%;
+    height: calc(100vh - 75px);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    left: 50%;
+    top: 75px;
+    transform: translateX(-50%);
+    background-color: cadetblue;
+}
+
+
+/*  intro section  */
+section.intro-section {
+    width: 100%;
+    height: 33%;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    background-color: rgba(100, 204, 223, 0.81);
+}
+article.login-container {
+    width: 50%;
+    height: 100%;
+    background-color: darkcyan;
+}
+article.welcome-container {
+    width: 50%;
+    height: 100%;
+    background-color: gray;
+}
+div.intro-background {
+    width: 100%;
+    height: 33%;
+    position: absolute;
+    background: url('../../images/bg.png') no-repeat right top fixed;
+    opacity: .3;
+}
+
+
+/*  feature section  */
+section.feature-section {
+    width: 100%;
+    height: 33%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #5a636a
+}
+
+.feature-button {
+    width: 280px;
+    height: 340px;
+    margin: 10px;
+    position: relative;
+    background: linear-gradient(to bottom, transparent, rgba(250, 255, 255, 0.493), rgb(250, 255, 255));
+    box-shadow: 2px 2px 5px #69818d21;
+    transition: all .4s ease;
+    border-radius: 10px;
+    user-select: none;
+}
+
+.feature-button a {
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
 
 
 

@@ -1,13 +1,52 @@
+import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import Header from "../../components/Header";
 import "./home.css";
 
 function Home() {
+   const [dados, setDados] = useState({
+      nome: 'Cashing',
+   })
+   
    return (
       <div>
          <Header />
 
-         <main className="container">
+         <main>
+            <section className="intro-section">
+               <article className="login-container">
+
+               </article>
+               <article className="welcome-container">
+
+               </article>
+               <div className="intro-background"></div>
+            </section>
+
+            <section className="feature-section">
+               <article className="feature-section-title">
+                  <h2>O que o {dados.nome} pode fazer ?</h2>
+                  <p>Gerenciando financeiro e realizando sonhos!</p>
+               </article>
+               <article className='buttons-wrapper'>
+                  <div className='feature-button'>
+                     <Link to="/finances">
+                        <img src={require("../../images/finances.png")} alt='img with coin'/>
+                        <h2>Finances</h2>
+                        <p>Mantenha o controle dos seus rendimentos. Insira suas fontes de receita e acompanhe seu progresso em direção às suas metas financeiras.</p></Link>
+                  </div>
+               </article>
+            </section>
+         </main>
+
+
+
+
+         
+
+
+         
+         {/* <main className="container">
             <section>
                <article className="container-login">
                   <h2>Faça seu login ou registre-se!</h2>
@@ -87,7 +126,7 @@ function Home() {
                   </p>
                </div>
             </section>
-         </main>
+         </main> */}
       </div>
    );
 }
