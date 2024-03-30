@@ -13,6 +13,7 @@
     --tom6: #5a636a;
     --background: #132e35;
     --textColor: #ffffff; 
+    --secTextColor: #4f4f4f;
     --font: "Wix Madefor Text", sans-serif;
 }
 
@@ -72,6 +73,7 @@ section.intro-section {
     display: flex;
     justify-content: center;
     flex-direction: row;
+    position: relative;
     background-color: rgba(100, 204, 223, 0.81);
 }
 article.login-container {
@@ -84,11 +86,19 @@ article.welcome-container {
     height: 100%;
     background-color: gray;
 }
-div.intro-background {
-    width: 100%;
-    height: 33%;
+div.intro-background-container {
     position: absolute;
+    right: 0;
+    width: 100%;
+    height: 100%;
+}
+div.intro-background {
+    position: absolute;
+    right: 0;
+    width: 80%;
+    height: 100%;
     background: url('../../images/bg.png') no-repeat right top fixed;
+    background-size: cover;
     opacity: .3;
 }
 
@@ -96,32 +106,60 @@ div.intro-background {
 /*  feature section  */
 section.feature-section {
     width: 100%;
-    height: 33%;
+    height: fit-content;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-color: #5a636a
+    background-color: #5a636a;
 }
-
+article.feature-section-title {
+    width: 100%;
+    text-align: center;
+    background-color: antiquewhite;
+}
+article.buttons-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
 .feature-button {
     width: 280px;
     height: 340px;
     margin: 10px;
     position: relative;
-    background: linear-gradient(to bottom, transparent, rgba(250, 255, 255, 0.493), rgb(250, 255, 255));
+    background: linear-gradient(to bottom, transparent, rgba(250, 255, 255, 0.379), rgba(250, 255, 255, 0.901));
     box-shadow: 2px 2px 5px #69818d21;
-    transition: all .4s ease;
+    transition: all .5s ease;
     border-radius: 10px;
     user-select: none;
 }
-
+.feature-button:hover {
+    box-shadow: 5px 5px 10px #69818d21;
+    transform: scale(1.01);
+}
+.feature-button:active {
+    box-shadow: 8px 8px 15px #69818d19;
+}
 .feature-button a {
     width: 100%;
     height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    text-decoration: none;
 }
-
-
+.feature-button img {
+    width: 35%;
+}
+.feature-button h2 {
+    color: var(--mainColor);
+}
+.feature-button p {
+    color: var(--secTextColor);
+    text-align: center;
+}
 
 
 

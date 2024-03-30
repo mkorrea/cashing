@@ -15,12 +15,30 @@ function Home() {
          <main>
             <section className="intro-section">
                <article className="login-container">
-
+                  {/*  */}
+   <h2>Faça seu login ou registre-se!</h2>
                </article>
+               {/*  */}
                <article className="welcome-container">
-
+                  {/*  */}
+   <div className="text welcome">
+         <p>
+            <strong>Bem-vindo ao Cashing!</strong>
+         </p>
+         <p>
+            Sabemos que gerenciar suas finanças pode ser desafiador,
+            mas estamos aqui para tornar isso mais simples e
+            eficiente para você. Com nossa plataforma intuitiva e
+            fácil de usar, você poderá acompanhar seus gastos e
+            ganhos financeiros de forma organizada e eficaz.
+         </p>
+      </div>
+      {/*  */}
                </article>
-               <div className="intro-background"></div>
+               <div className="intro-background-container">
+                  <div className='intro-background'></div>
+                  {/* <img src={require('../../images/bg.png')}/> */}
+               </div>
             </section>
 
             <section className="feature-section">
@@ -31,18 +49,28 @@ function Home() {
                <article className='buttons-wrapper'>
                   <div className='feature-button'>
                      <Link to="/finances">
-                        <img src={require("../../images/finances.png")} alt='img with coin'/>
+                        <img src={require("../../images/finances.png")} alt='coin'/>
                         <h2>Finances</h2>
-                        <p>Mantenha o controle dos seus rendimentos. Insira suas fontes de receita e acompanhe seu progresso em direção às suas metas financeiras.</p></Link>
+                        <p className='pt'>Mantenha o controle dos seus rendimentos. Insira suas fontes de receita e acompanhe seu progresso em direção às suas metas financeiras.</p>
+                     </Link>
+                  </div>
+                  <div className='feature-button'>
+                     <Link to="/finances">
+                     <img src={require("../../images/calculator.png")} alt='calculator'/>
+                        <h2>Calculator</h2>
+                        <p className='pt'>Calcule seus objetivos financeiros em segundos! Descubra em quantos meses você pode alcançar sua meta de economia ao juntar um determinado valor mensalmente.</p>
+                     </Link>
+                  </div>
+                  <div className='feature-button'>
+                     <Link to="/finances">
+                     <img src={require("../../images/gear.png")} alt='settings'/>
+                        <h2>Settings</h2>
+                        <p className='pt'>Personalize sua experiência! Ajuste as configurações do site de acordo com suas preferências individuais.</p>
+                     </Link>
                   </div>
                </article>
             </section>
          </main>
-
-
-
-
-         
 
 
          
@@ -84,16 +112,16 @@ function Home() {
                      </Link>
                   </div>
                   <div className="box">
-                     <Link to="">
-                        <img src={require("../../images/calculator.png")} />
-                        <h2>Calculator</h2>
-                        <p>
-                           Calcule seus objetivos financeiros em segundos!
-                           Descubra em quantos meses você pode alcançar sua meta
-                           de economia ao juntar um determinado valor
-                           mensalmente.
-                        </p>
-                     </Link>
+                  <Link to="">
+                     <img src={require("../../images/calculator.png")} />
+                     <h2>Calculator</h2>
+                     <p>
+                        Calcule seus objetivos financeiros em segundos!
+                        Descubra em quantos meses você pode alcançar sua meta
+                        de economia ao juntar um determinado valor
+                        mensalmente.
+                     </p>
+                  </Link>
                   </div>
                   <div className="box">
                      <Link to="">
@@ -125,8 +153,7 @@ function Home() {
                      financeira mais saudável e equilibrada.
                   </p>
                </div>
-            </section>
-         </main> */}
+*/}
       </div>
    );
 }
