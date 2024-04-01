@@ -37,18 +37,15 @@ header {
     display: flex;
     text-decoration: none;
 }
-
 .logo img {
     width: 50px;
     margin-right: 20px;
     transform: rotate(320deg);
     transition: all .2s;
 }
-
 .logo img:hover {
     transform: rotate(360deg);
 }
-
 .logo h1 {
     font-size: 42px;
     text-shadow: 2px 2px 3px #112123dd;
@@ -88,6 +85,8 @@ li.active {
     text-shadow: 2px 2px 2px #2d4a53;
 }
 li:hover {
+    width: 120px;
+    margin: 0px 20px;
     border-bottom: 5px solid #8bc3dd;
     border-radius: 5px;
 }
