@@ -13,14 +13,17 @@
 
     /*  main colors pallette  */
     --color-primary-dark: #0d1f23;
-    --color-primary: #132e35;
+    --color-primary: rgb(31, 87, 83);
+    --color-primary: #0c545a;
     --color-secondary-dark: #2d4a53;
     --color-secondary: #69818d;
     --color-neutral-dark: #5a636a;
     --color-neutral: #afb3b7;
 }
 
-/* #cce3e5 */
+/* #cce3e5 
+cce4e6
+*/
 
 * {
     margin: 0;
@@ -33,11 +36,13 @@
 body {
     background: url('./images/bg.jpg') no-repeat fixed center center;
     background-size: cover;
+    display: flex;
+    flex-direction: column;
 }
 
 main {
     width: 100%;
-    height: calc(100vh - 75px);
+    height: 100%;
     display: flex;
     flex-direction: column;
     position: relative;

@@ -38,15 +38,20 @@ header {
 .logo img {
     width: 50px;
     margin-right: 20px;
+    transform: rotateX(360deg);
+    transform: rotateY(360deg);
     transform: rotate(320deg);
-    transition: all .2s;
+    transition: all .3s .1s ease;
 }
 .logo img:hover {
     transform: rotate(360deg);
+    transform: rotateY(320deg);
+    transform: rotateX(400deg);
+    height: 54px;
 }
 .logo h1 {
     font-size: 42px;
-    text-shadow: 2px 2px 3px #112123dd;
+    text-shadow: 2px 2px 3px #2c515647;
     user-select: none;
     cursor: pointer;
     color: var(--colorText);
@@ -88,7 +93,6 @@ li:hover {
     border-bottom: 5px solid var(--color-neutral);
     border-radius: 5px;
 }
-
 
 li a {
     width: 100px;

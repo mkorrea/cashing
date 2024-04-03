@@ -1,6 +1,7 @@
 import React, { useCallback, useState } from 'react';
 import { Link } from "react-router-dom";
 import Header from "../../components/Header";
+import Footer from '../../components/Footer'
 import "./home.css";
 
 function Home() {
@@ -19,10 +20,8 @@ function Home() {
                <article className="login-container">
                   <h2>Faça seu Cadastro</h2>
                   <div className='login-input-container'>
-                     <input type='email' placeholder='Seu email' value={input} onChange={(e) => setInput(e.target.value)} />
-                     <button type='button' value='Criar conta'> 
-                        <Link to='/cadastro'> Criar conta </Link>  
-                     </button>
+                     <input type='email' placeholder='Seu email' value={input} onChange={(e) => setInput(e.target.value)} /> 
+                        <Link to='/cadastro' className='button'> Criar conta </Link>
                   </div>
                </article>
 
@@ -98,7 +97,7 @@ function Home() {
          </main>
 
 
-         
+         <Footer/>
          {/* 
             <section className="text">
                <div className="text ">
