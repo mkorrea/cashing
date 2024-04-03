@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { Link } from "react-router-dom";
 import Header from "../../components/Header";
 import "./home.css";
 
 function Home() {
+   const [input, setInput] = useState('')
+
    const [dados, setDados] = useState({
       nome: 'Cashing',
    })
@@ -15,20 +17,25 @@ function Home() {
          <main>
             <section className="intro-section">
                <article className="login-container">
-                  <h2>Faça seu Cadastro ou login!</h2>
-                  <input type='email' value='Seu email' />
+                  <h2>Faça seu Cadastro</h2>
+                  <div className='login-input-container'>
+                     <input type='email' placeholder='Seu email' value={input} onChange={(e) => setInput(e.target.value)} />
+                     <button type='button' value='Criar conta'> 
+                        <Link to='/cadastro'> Criar conta </Link>  
+                     </button>
+                  </div>
                </article>
 
                <article className="welcome-container">
                   <div className="welcome-text">
-                        <p><strong>Bem-vindo ao Cashing!</strong></p>
-                        <p>
-                           Sabemos que gerenciar suas finanças pode ser desafiador,
+                        <div>
+                           Gerenciar suas finanças pode ser desafiador,
                            mas estamos aqui para tornar isso mais simples e
-                           eficiente para você. Com nossa plataforma intuitiva e
+                           eficiente para você. 
+                           {/* Com nossa plataforma intuitiva e
                            fácil de usar, você poderá acompanhar seus gastos e
-                           ganhos financeiros de forma organizada e eficaz.
-                        </p>
+                           ganhos financeiros de forma organizada e eficaz. */}
+                        </div>
                      </div>
                </article>
 

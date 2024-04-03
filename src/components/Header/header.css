@@ -12,9 +12,7 @@
  */
 
 :root {
-    --background: #0d1f23;
     --colorText: #fff; 
-    --font: "Wix Madefor Text", sans-serif;
 }
 
 header {
@@ -27,8 +25,8 @@ header {
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    font-family: var(--font);
-    background: var(--background);
+    font-family: var(--font-secondary);
+    background: var(--color-primary);
     color: var(--colorText);
     box-shadow: 0px 5px 7px #0d1f2333;
 }
@@ -87,7 +85,7 @@ li.active {
 li:hover {
     width: 120px;
     margin: 0px 20px;
-    border-bottom: 5px solid #8bc3dd;
+    border-bottom: 5px solid var(--color-neutral);
     border-radius: 5px;
 }
 

@@ -1,9 +1,47 @@
 @import url('https://fonts.googleapis.com/css2?family=Wix+Madefor+Text:ital,wght@0,400..800;1,400..800&display=swap');
 
+:root {
+    /*  fonts  */
+    --font-primary: "Quicksand", sans-serif;
+    --font-secondary: "Wix Madefor Text", sans-serif;
+
+    /*  text colors  */
+    --color-title: #132e35;
+    --color-text: #616161;
+    --color-text-light: #7b7b7b; 
+    --color-text-dark: #1c1c1c;
+
+    /*  main colors pallette  */
+    --color-primary-dark: #0d1f23;
+    --color-primary: #132e35;
+    --color-secondary-dark: #2d4a53;
+    --color-secondary: #69818d;
+    --color-neutral-dark: #5a636a;
+    --color-neutral: #afb3b7;
+}
+
+/* #cce3e5 */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: var(--font);
 }
 
+
+/*  configurações gerais  */
+body {
+    background: url('./images/bg.jpg') no-repeat fixed center center;
+    background-size: cover;
+}
+
+main {
+    width: 100%;
+    height: calc(100vh - 75px);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    left: 50%;
+    top: 75px;
+    transform: translateX(-50%);
+}
