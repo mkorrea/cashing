@@ -1,10 +1,10 @@
 main.main-content {
     width: 40%;
+    top: 100px;
     padding: 20px;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
     background-color: #ffffff;
-    z-index: 2;
 }
 
 

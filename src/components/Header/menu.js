@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 
-function Menu() {
+function Menu( ) {
    const [active, setActive] = useState(null);
    const location = useLocation();
+
 
    useEffect(() => {
       // Verifica a localização atual e atualiza o estado ativo conforme necessário
@@ -17,6 +18,7 @@ function Menu() {
       }
    }, [location]);
 
+   
    return (
       <ul className="menu">
          <li className={active === "home" ? "active" : ""}>

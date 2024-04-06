@@ -2,15 +2,6 @@
     Header 
 */
 
-/* 
-    #0d1f23
-    #132e35
-    #2d4a53
-    #69818d
-    #afb3b7
-    #5a636a
- */
-
 :root {
     --colorText: #fff; 
 }
@@ -31,27 +22,33 @@ header {
     box-shadow: 0px 5px 7px #0d1f2333;
 }
 
-.logo a {
+
+/*  logo  */
+.logo-container {
+    user-select: none;
+}
+.logo-container a {
     display: flex;
     justify-content: center;
     align-items: center;
     text-decoration: none;
 }
-
-.logo img {
+.logo-container img {
     width: 55px;
     height: fit-content;
     margin-right: 10px;
-    user-select: none;
     transform: rotate(320deg);
     transition: transform .3s ease;
     filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.428));
 }
-
-.logo img:hover {
+.logo-container:hover #logo-img {
+    transform: rotate(360deg);
+  }
+  
+.logo-container img:hover {
     transform: rotate(360deg);
 }
-.logo h1 {
+.logo-container h1 {
     font-size: 42px;
     text-shadow: 2px 2px 3px #2c515647;
     user-select: none;
@@ -59,7 +56,7 @@ header {
     color: var(--colorText);
     font-weight: bold;
 }
-
+  
 
 
 .menu {

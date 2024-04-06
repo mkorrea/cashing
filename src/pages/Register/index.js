@@ -14,7 +14,6 @@ function Register() {
    const user = useMemo( () => info, [info])
 
    const [erro, setErro] = useState('')
-
    function Check() {
     if (info.name && info.familyname && info.email && info.password && info.passwordCheck) {
         return 'button active'
@@ -50,7 +49,7 @@ function Register() {
                         autoFocus
                         id="nome"
                     />
-                    <label for='nome'>Nome</label>
+                    <label htmlFor='nome'>Nome</label>
                 </div>
                 <div className="input-component">
                     <input
@@ -61,7 +60,7 @@ function Register() {
                         placeholder=""
                         id="familyname"
                     />
-                    <label for='familyname'>Sobrenome</label>
+                    <label htmlFor='familyname'>Sobrenome</label>
                 </div>
                 <div className="input-component">
                     <input
@@ -72,7 +71,7 @@ function Register() {
                         autoComplete='none'
                         id="email"
                     />
-                    <label for='email'>Email</label>
+                    <label htmlFor='email'>Email</label>
                 </div>
                 <div className="input-component">
                     <input
@@ -83,7 +82,7 @@ function Register() {
                         autoComplete='none'
                         id="password"
                     />
-                    <label for='password'>Senha</label>
+                    <label htmlFor='password'>Senha</label>
                 </div>
                 <div className="input-component">
                     <input
@@ -94,7 +93,7 @@ function Register() {
                         autoComplete='none'
                         id="passwordCheck"
                     />
-                    <label for='passwordCheck'>Confirme a senha</label>
+                    <label htmlFor='passwordCheck'>Confirme a senha</label>
                 </div>
             </section>
 
