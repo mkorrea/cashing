@@ -13,12 +13,16 @@
 
     /*  main colors pallette  */
     --color-primary-dark: #0d1f23;
-    --color-primary: rgb(31, 87, 83);
     --color-primary: #0c545a;
     --color-secondary-dark: #2d4a53;
     --color-secondary: #69818d;
     --color-neutral-dark: #5a636a;
     --color-neutral: #afb3b7;
+
+    /*  formatting  */
+    --box-shadow: 3px 3px 5px rgba(147, 147, 147, 0.191);
+    --border-radius: 5px;
+    
 }
 
 /* #cce3e5 

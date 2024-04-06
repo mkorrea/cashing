@@ -6,9 +6,15 @@ function Finances() {
     return(
         <div>
             <Header/>
-            <main>
-                
-            </main>
+                <main>
+                    <section className='title-section'>
+                        <h1 className='title'> Finances </h1>
+                    </section>
+
+                    
+
+
+                </main>
             <Footer/>
         </div>
     )
