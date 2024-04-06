@@ -1,12 +1,14 @@
-
 import './style.css'
 import RoutesApp from './routes';
+import { UserProvider } from './pages/Register/UserContext';
 
 function App() {
   return (
-    <div>
-      <RoutesApp/>
-    </div>
+    <UserProvider>
+      <div>
+        <RoutesApp/>
+      </div>
+    </UserProvider>
   );
 }
 

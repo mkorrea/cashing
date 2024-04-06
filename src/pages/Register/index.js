@@ -1,34 +1,30 @@
-import React, { useCallback, useState, useMemo } from "react";
+import React, { useCallback, useState, useMemo, useContext } from "react";
 import { Link } from "react-router-dom";
+import UserContext from "./UserContext";
 import Header from "../../components/Header";
 import "./register.css";
 
-function Register() {
-   const [info, setInfo] = useState({
-      name: "",
-      familyname: "",
-      email: "",
-      password: "",
-      passwordCheck: ""
-   });
-   const user = useMemo( () => info, [info])
-
-   const [erro, setErro] = useState('')
-   function Check() {
-    if (info.name && info.familyname && info.email && info.password && info.passwordCheck) {
-        return 'button active'
-    } else {
-        return 'button verify'
+function Register(input) {
+    const { user, updateUser } = useContext(UserContext);
+        
+    function Check() {
+        if (user.name && user.familyname && user.email && user.password && user.passwordCheck) {
+            return 'button active'
+        } else {
+            return 'button'
+        }
     }
-   }
-
-   function Erro() {
-    if (info.name && info.familyname && info.email && info.password && info.passwordCheck) {
-        return setErro('')
-    } else {
-        return setErro('check-error')
+    
+    const [verify, setVerify] = useState('')
+    
+    function handleRegister() {
+        if (Check() === 'button active') {
+            updateUser(user)
+            return setVerify('')
+        } else {
+            return setVerify('verify')
+        }
     }
-   }
 
    return (
       <div>
@@ -42,8 +38,8 @@ function Register() {
                 <div className="input-component">
                     <input
                         type="text"
-                        value={info.name}
-                        onChange={(e) => setInfo({ ...info, name: e.target.value })}
+                        value={user.name}
+                        onChange={(e) => updateUser({ ...user, name: e.target.value })}
                         autoComplete="name"
                         placeholder=""
                         autoFocus
@@ -54,8 +50,8 @@ function Register() {
                 <div className="input-component">
                     <input
                         type="text"
-                        value={info.familyname}
-                        onChange={(e) => setInfo({ ...info, familyname: e.target.value })}
+                        value={user.familyname}
+                        onChange={(e) => updateUser({ ...user, familyname: e.target.value })}
                         autoComplete="family-name"
                         placeholder=""
                         id="familyname"
@@ -65,8 +61,8 @@ function Register() {
                 <div className="input-component">
                     <input
                         type="email"
-                        value={info.email}
-                        onChange={(e) => setInfo({ ...info, email: e.target.value })}
+                        value={input.length > 1 ? updateUser(input) : user.email}
+                        onChange={(e) => updateUser({ ...user, email: e.target.value })}
                         placeholder=""
                         autoComplete='none'
                         id="email"
@@ -76,8 +72,8 @@ function Register() {
                 <div className="input-component">
                     <input
                         type="password"
-                        value={info.password}
-                        onChange={(e) => setInfo({ ...info, password: e.target.value })}
+                        value={user.password}
+                        onChange={(e) => updateUser({ ...user, password: e.target.value })}
                         placeholder=""
                         autoComplete='none'
                         id="password"
@@ -87,8 +83,8 @@ function Register() {
                 <div className="input-component">
                     <input
                         type="password"
-                        value={info.passwordCheck}
-                        onChange={(e) => setInfo({ ...info, passwordCheck: e.target.value })}
+                        value={user.passwordCheck}
+                        onChange={(e) => updateUser({ ...user, passwordCheck: e.target.value })}
                         placeholder=""
                         autoComplete='none'
                         id="passwordCheck"
@@ -100,9 +96,8 @@ function Register() {
             <section className="button-section">
                 <Link to={Check() === 'button active' ? '/' : ''} 
                 className={Check()} 
-                onClick={() => Erro() }> Cadastrar </Link>
-                <div id={erro}></div>
-
+                onClick={() => handleRegister() }> Cadastrar </Link>
+                <div id={verify}></div>
             </section>
                 <Link to='/' className="home-button"> Cancelar </Link>
                

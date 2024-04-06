@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import Register from '../../Register'
 
 function IntroSection() {
-   const [input, setInput] = useState("");
-
+   const [input, setInput] = useState('');
+   
    return (
       <section className="intro-section">
          <article className="login-container">
@@ -36,6 +37,7 @@ function IntroSection() {
          </div>
       </section>
    );
+<Register input={input}/>
 }
 
 export default IntroSection;

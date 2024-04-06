@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link, useLocation } from "react-router-dom";
+import UserContext from "../../../pages/Register/UserContext";
 
 function Menu( ) {
    const [active, setActive] = useState(null);
    const location = useLocation();
-
+   const { user } = useContext(UserContext);
 
    useEffect(() => {
       // Verifica a localização atual e atualiza o estado ativo conforme necessário
@@ -26,6 +27,9 @@ function Menu( ) {
          </li>
          <li className={active === "finances" ? "active" : ""}>
             <Link to="/finances">Finances</Link>
+         </li>
+         <li>
+            <h3> {user.name} </h3>
          </li>
       </ul>
    );
