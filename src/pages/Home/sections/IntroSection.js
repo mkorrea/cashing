@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
-import Register from '../../Register'
+import UserContext from "../../Register/UserContext";
 
 function IntroSection() {
    const [input, setInput] = useState('');
+   const { user, updateUser } = useContext(UserContext);
    
    return (
       <section className="intro-section">
@@ -13,8 +14,8 @@ function IntroSection() {
                <input
                   type="email"
                   placeholder="Seu email"
-                  value={input}
-                  onChange={(e) => setInput(e.target.value)}
+                  value={user.email}
+                  onChange={(e) => updateUser({ ...user, email: e.target.value })}
                />
                <Link to="/cadastro" className="button">
                   Criar conta
@@ -37,7 +38,6 @@ function IntroSection() {
          </div>
       </section>
    );
-<Register input={input}/>
 }
 
 export default IntroSection;

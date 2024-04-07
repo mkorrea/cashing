@@ -6,25 +6,21 @@ import "./register.css";
 
 function Register(input) {
     const { user, updateUser } = useContext(UserContext);
-        
-    function Check() {
-        if (user.name && user.familyname && user.email && user.password && user.passwordCheck) {
-            return 'button active'
-        } else {
-            return 'button'
-        }
+
+    function CompleteCheck() {
+        return user.name && user.familyname && user.email && user.password && user.confirmPassword;
     }
-    
-    const [verify, setVerify] = useState('')
-    
-    function handleRegister() {
-        if (Check() === 'button active') {
-            updateUser(user)
-            return setVerify('')
-        } else {
-            return setVerify('verify')
-        }
+
+    function PasswordCheck() {
+        return user.password === user.confirmPassword;
     }
+
+    const handleRegisterClick = () => {
+        if (CompleteCheck() && PasswordCheck()) {
+            return "/";
+        } 
+    };
+
 
    return (
       <div>
@@ -71,34 +67,40 @@ function Register(input) {
                 </div>
                 <div className="input-component">
                     <input
-                        type="password"
+                        type="text"
                         value={user.password}
                         onChange={(e) => updateUser({ ...user, password: e.target.value })}
                         placeholder=""
                         autoComplete='none'
                         id="password"
+                        className={ PasswordCheck() === 'missmatch-password' ? 'mismatch-password' : '' }
                     />
                     <label htmlFor='password'>Senha</label>
                 </div>
                 <div className="input-component">
                     <input
-                        type="password"
-                        value={user.passwordCheck}
-                        onChange={(e) => updateUser({ ...user, passwordCheck: e.target.value })}
+                        type="text"
+                        value={user.confirmPassword}
+                        onChange={(e) => updateUser({ ...user, confirmPassword: e.target.value })}
                         placeholder=""
                         autoComplete='none'
-                        id="passwordCheck"
-                    />
-                    <label htmlFor='passwordCheck'>Confirme a senha</label>
+                        id="confirmPassword"
+                        className={ PasswordCheck() === 'missmatch-password' ? 'mismatch-password' : '' }               />
+                    <label htmlFor='confirmPassword'>Confirme a senha</label>
                 </div>
             </section>
 
             <section className="button-section">
-                <Link to={Check() === 'button active' ? '/' : ''} 
-                className={Check()} 
-                onClick={() => handleRegister() }> Cadastrar </Link>
-                <div id={verify}></div>
+                <Link 
+                    to={handleRegisterClick()} 
+                    className={CompleteCheck() ? 'button on' : 'button'} 
+                    onClick={handleRegisterClick}> Cadastrar
+                </Link>
+                <div className={ !CompleteCheck() ? "warning" : 'off-warning' }> Por favor, preencha todos os campos </div>
+                {/* { !CompleteCheck() && <div className="warning">Por favor, preencha todos os campos</div> } */}
+                <div className={ CompleteCheck() && !PasswordCheck() ? "warning" : 'off-warning'}> As senhas não coincidem </div> 
             </section>
+            
                 <Link to='/' className="home-button"> Cancelar </Link>
                
          </main>

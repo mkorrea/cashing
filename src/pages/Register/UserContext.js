@@ -8,7 +8,7 @@ export const UserProvider = ({ children }) => {
         familyname: "",
         email: "",
         password: "",
-        passwordCheck: ""
+        confirmPassword: ""
      });
 
      const updateUser = (newUserData) => {
