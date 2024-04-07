@@ -1,4 +1,4 @@
-import React, { useCallback, useState, useMemo, useContext } from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import UserContext from "./UserContext";
 import Header from "../../components/Header";
@@ -18,7 +18,7 @@ function Register(input) {
     const handleRegisterClick = () => {
         if (CompleteCheck() && PasswordCheck()) {
             return "/";
-        } 
+        }
     };
 
 
@@ -73,7 +73,6 @@ function Register(input) {
                         placeholder=""
                         autoComplete='none'
                         id="password"
-                        className={ PasswordCheck() === 'missmatch-password' ? 'mismatch-password' : '' }
                     />
                     <label htmlFor='password'>Senha</label>
                 </div>
@@ -85,7 +84,7 @@ function Register(input) {
                         placeholder=""
                         autoComplete='none'
                         id="confirmPassword"
-                        className={ PasswordCheck() === 'missmatch-password' ? 'mismatch-password' : '' }               />
+                        className={ !PasswordCheck()  ? 'missmatch-password' : '' }/>
                     <label htmlFor='confirmPassword'>Confirme a senha</label>
                 </div>
             </section>
@@ -96,8 +95,7 @@ function Register(input) {
                     className={CompleteCheck() ? 'button on' : 'button'} 
                     onClick={handleRegisterClick}> Cadastrar
                 </Link>
-                <div className={ !CompleteCheck() ? "warning" : 'off-warning' }> Por favor, preencha todos os campos </div>
-                {/* { !CompleteCheck() && <div className="warning">Por favor, preencha todos os campos</div> } */}
+                {/* <div className={ !CompleteCheck() ? "warning" : 'off-warning' }> Por favor, preencha todos os campos </div> */}
                 <div className={ CompleteCheck() && !PasswordCheck() ? "warning" : 'off-warning'}> As senhas não coincidem </div> 
             </section>
             
