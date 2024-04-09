@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import UserContext from "./UserContext";
-import Header from "../../components/Header";
+import Logo from "../../components/Header/sections/logo";
+
 import "./register.css";
 
 function Register(input) {
@@ -23,10 +24,10 @@ function Register(input) {
 
 
    return (
-      <div>
-         <Header />
+      <div className="register-background">
          <main className="main-content">
             <section className="title-section">
+                <Logo />
                <h1 className="title"> Cadastre-se </h1>
             </section>
 
@@ -67,7 +68,7 @@ function Register(input) {
                 </div>
                 <div className="input-component">
                     <input
-                        type="text"
+                        type="password"
                         value={user.password}
                         onChange={(e) => updateUser({ ...user, password: e.target.value })}
                         placeholder=""
@@ -78,7 +79,7 @@ function Register(input) {
                 </div>
                 <div className="input-component">
                     <input
-                        type="text"
+                        type="password"
                         value={user.confirmPassword}
                         onChange={(e) => updateUser({ ...user, confirmPassword: e.target.value })}
                         placeholder=""

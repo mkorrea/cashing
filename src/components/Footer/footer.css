@@ -1,9 +1,10 @@
 footer {
     width: 100%;
-    height: 250px; /* Defina a altura do footer conforme necessário */
+    height: 200px; /* Defina a altura do footer conforme necessário */
     margin-top: 75px;
-    background-color: var(--color-primary);
-    color: white; /* Cor do texto do footer */
+    position: relative;
+    bottom: 0;
     text-align: center;
-    bottom: 0; /* Alinha o footer ao fundo do corpo */
+    color: white; 
+    background-color: var(--color-primary);
 }

@@ -11,6 +11,7 @@ body {
     color: var(--color-text);
 }
 
+
 /*  intro section  */
 section.intro-section {
     width: 80%;
@@ -22,7 +23,6 @@ section.intro-section {
     position: relative;
     left: 50%;
     transform: translateX(-50%);
-    /* background-color: rgba(100, 204, 223, 0.81); */
 }
 article.login-container {
     width: 50%;
@@ -35,6 +35,7 @@ article.login-container {
 }
 article .login-input-container {
     width: 70%;
+    min-width: 250px;
     height: 40px;
     display: flex;
     flex-direction: row;
@@ -46,16 +47,18 @@ article .login-input-container input {
     padding: 15px;
     border-radius: 20px 0px 0px 20px;
     border: 1px solid var(--color-neutral);
-    background-color: rgba(255, 255, 255, 0.199);
+    background-color: rgba(255, 255, 255, 0.024);
     transition: all .5s;
     z-index: 1;
 }
 article .login-input-container input:hover {
     border: 1px solid var(--color-secondary);
+    background-color: rgba(255, 255, 255, 0.199);
 }
 article .login-input-container input:focus {
     border: 1px solid var(--color-secondary);
     outline: none;
+    background-color: rgba(255, 255, 255, 0.34);
 }
 article .login-input-container input::placeholder {
     color: rgba(0, 0, 0, 0.371); 
@@ -68,6 +71,7 @@ article .login-input-container .button {
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 13px;
     text-decoration: none;
     text-align: center;
     border-radius: 20px;
@@ -155,20 +159,20 @@ article.buttons-wrapper {
     flex-direction: row;
 }
 .feature-button {
-    width: 280px;
-    height: 90%;
+    width: 250px;
+    height: 95%;
     margin: 5px;
     position: relative;
     background: linear-gradient(to bottom, transparent, rgba(250, 255, 255, 0.379), rgba(250, 255, 255, 0.901));
-    box-shadow: 2px 2px 5px rgba(105, 129, 141, 0.057);
+    box-shadow: 0px 0px 5px rgba(105, 129, 141, 0.057);
     border-radius: 10px;
     user-select: none;
     transition: all .5s ease;
 }
 .feature-button:hover {
+    width: 270px;
     transition-delay: .0.5s;
-    box-shadow: 5px 5px 10px #69818d21;
-    width: 300px;
+    box-shadow: 0px 0px 10px #69818d21;
 }
 .feature-button:active {
     box-shadow: 8px 8px 15px #69818d19;

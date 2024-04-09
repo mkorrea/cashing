@@ -6,7 +6,7 @@ import Finances from './pages/Finances'
 
 function RoutesApp() {
     return(
-        <BrowserRouter>
+        <BrowserRouter>            
             <Routes>
                 <Route path="/" element={ <Home/> } />
                 <Route path="/cadastro" element={ <Register/> } />
