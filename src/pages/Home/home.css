@@ -52,11 +52,11 @@ article .login-input-container input {
     z-index: 1;
 }
 article .login-input-container input:hover {
-    border: 1px solid var(--color-secondary);
+    border: 1px solid var(--color-main-dark);
     background-color: rgba(255, 255, 255, 0.199);
 }
 article .login-input-container input:focus {
-    border: 1px solid var(--color-secondary);
+    border: 1px solid var(--color-main-dark);
     outline: none;
     background-color: rgba(255, 255, 255, 0.34);
 }
@@ -75,8 +75,8 @@ article .login-input-container .button {
     text-decoration: none;
     text-align: center;
     border-radius: 20px;
-    border: 1px solid var(--color-secondary);
-    background-color: var(--color-secondary);
+    border: 1px solid var(--color-main-dark);
+    background-color: var(--color-main-dark);
     color: white;
     z-index: 1;
 }

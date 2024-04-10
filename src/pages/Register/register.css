@@ -3,15 +3,16 @@
 }
 
 
-.register-background{
+.register-background{  
     min-height: 100vh;
     background-color: rgb(245, 245, 245);
 }
 main.main-content {
-    width: 30%;
+    width: 20%;
+    min-width: 400px;
     margin-bottom: 150px;
     padding: 20px;
-    top: 50px;
+    top: 100px;
     border-radius: var(--border-radius);
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.164);
     background-color: #ffffff;
@@ -26,15 +27,17 @@ section.title-section {
     align-items: center;
     flex-direction: column;
 }
-section.title-section .logo-container {
-    margin: 20px 0px;
+section.title-section .logo-container a {
+    margin-bottom: 15px;
 }
-section.title-section .logo-container img{
-    width: 34px;
+section.title-section .logo-container .img{
+    width: 28px;
+    background: url('../../images/main-color-icon.png') fixed no-repeat center center;
+    background-size: contain;
 }
 section.title-section .logo-container h1 {
     font-size: 30px;
-    color: var(--color-logo);
+    color: var(--color-main);
 }
 .title{
     margin-top: 10px;
@@ -92,7 +95,7 @@ section.input-section {
     border: 1px solid var(--color-neutral);
 }
 .input-section input:focus {
-    border: 1px solid var(--color-primary);
+    border: 1px solid var(--color-main);
     outline: none;
 }
 input.missmatch-password {
@@ -152,5 +155,5 @@ section.button-section {
     justify-content: center;
     margin: 5px;
     text-decoration: none;
-    color: var(--color-primary);
+    color: var(--color-main);
 }

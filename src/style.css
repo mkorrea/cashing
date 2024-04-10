@@ -6,16 +6,28 @@
     --font-secondary: "Wix Madefor Text", sans-serif;
 
     /*  text colors  */
-    --color-title: #132e35;
-    --color-text: #616161;
+    --color-title:      #132e35;
+    --color-text:       #616161;
     --color-text-light: #7b7b7b; 
-    --color-text-dark: #1c1c1c;
+    --color-text-dark:  #1c1c1c;
 
     /*  main colors pallette  */
-    --color-primary-dark: #0d1f23;
+    /* --color-primary-dark: #0d1f23;
     --color-primary: #0c545a;
     --color-secondary-dark: #2d4a53;
     --color-secondary: #088184;
+    --color-neutral-dark: #5a636a;
+    --color-neutral: #afb3b7;
+    --color-logo: #0a8e92;
+    --color-logo-secondary: #065c5e;
+    --color-logo-3: #0cb3b8; */
+
+    --color-main-lighter: #8DF3F7;
+    --color-main-light:   #2CEBF2;
+    --color-main:         #0cb3b8;
+    --color-main-dark:    #098286;
+    --color-main-darker:  #054A4C;
+
     --color-neutral-dark: #5a636a;
     --color-neutral: #afb3b7;
     --color-logo: #0a8e92;
