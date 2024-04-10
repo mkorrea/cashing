@@ -83,6 +83,7 @@ function Register(input) {
                         value={user.confirmPassword}
                         onChange={(e) => updateUser({ ...user, confirmPassword: e.target.value })}
                         placeholder=""
+                        
                         autoComplete='none'
                         id="confirmPassword"
                         className={ !PasswordCheck()  ? 'missmatch-password' : '' }/>

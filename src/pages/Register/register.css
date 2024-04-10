@@ -98,6 +98,9 @@ section.input-section {
     border: 1px solid var(--color-main);
     outline: none;
 }
+input.missmatch-password:focus {
+    border: 1px solid var(--color-main);
+}
 input.missmatch-password {
     border: 1.5px solid var(--color-error);
 }
@@ -138,6 +141,7 @@ section.button-section {
     color: transparent;
     user-select: none;
 }
+
 .warning {
     content: 'Por favor, preencha todos os campos';
     width: 100%;
