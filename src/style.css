@@ -28,6 +28,12 @@
     --color-main-dark:    #098286;
     --color-main-darker:  #054A4C;
 
+    /* 
+                DARK MODE
+        main color header: #1d2125
+        darkmode color logo: var(--color-main)
+    */
+
     --color-neutral-dark: #5a636a;
     --color-neutral: #afb3b7;
     --color-logo: #0a8e92;

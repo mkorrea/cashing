@@ -1,44 +1,26 @@
 import Header from "../../components/Header";
-import Footer from "../../components/Footer";
+import NewSheet from "./NewSheet";
 import "./finances.css";
 
 function Finances() {
    return (
       <div>
          <Header />
-         <main>
-            <section className="title-section">
-               <h1 className="title"> Finances </h1>
-            </section>
+         <main className="sheets-section">
+            <div className="sheets-background">
+               <img src={require("../../images/trees-bg.jpg")} alt="imagem" />
 
-            <section className="sheets-section">
-               <div className="sheets-background">
-                  <div className="main-sheet">
-                    
-                     <div className="sheet-row">
-                        <input type="text" className="description" />
-                        <select className="category">
-                           <option> Contas </option>
-                           <option> Comida </option>
-                        </select>
-                        <div className="date"> 05/04</div>
-                        <div className="value negative"> - R$ 500,00 </div>
-                     </div>
+               <section className="finances-title-section">
+                  <h1> Minhas Finanças </h1>
+               </section>
 
-                     <div className="sheet-row">
-                        <div className="description">Salário</div>
-                        <select className="category">
-                           <option> Contas </option>
-                           <option> Comida </option>
-                        </select>
-                        <div className="date"> 05/04</div>
-                        <div className="value positive"> + R$ 3254,00 </div>
-                     </div>
-                  </div>
+               <NewSheet />
+               
+               <div>
+
                </div>
-            </section>
+            </div>
          </main>
-         <Footer />
       </div>
    );
 }
