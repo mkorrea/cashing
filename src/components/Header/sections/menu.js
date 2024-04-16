@@ -23,12 +23,12 @@ function Menu( ) {
    return (
       <ul className="menu">
          <li className={active === "home" ? "active" : ""}>
-            <Link to="/">Home
+            <Link to="/"> Início
                <div className="bar"></div>
             </Link>
          </li>
          <li className={active === "finances" ? "active" : ""}>
-            <Link to="/finances">Finances
+            <Link to="/finances"> Planilhas
                <div className="bar"></div>
             </Link>
          </li>

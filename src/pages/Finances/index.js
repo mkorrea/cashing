@@ -1,4 +1,5 @@
 import Header from "../../components/Header";
+import FixedSheet from "./FixedSheet";
 import NewSheet from "./NewSheet";
 import "./finances.css";
 
@@ -13,7 +14,6 @@ function Finances() {
                <section className="finances-title-section">
                   <h1> Minhas Finanças </h1>
                </section>
-
                <NewSheet />
                
                <div>

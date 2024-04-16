@@ -13,6 +13,7 @@
     position: relative;
 }
 
+
 section.finances-title-section{
     width: 100%;
     height: 45px;
@@ -22,19 +23,29 @@ section.finances-title-section{
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.173);
 }
 
-.main-sheet{
+
+/*  ---- planilhas ---- */
+.sheet{
     min-width: 50%;
     width: fit-content;
     min-height: 200px;
     height: fit-content;
-    margin: 20px;
+    margin: 15px;
     padding: 15px;
-    position: absolute;
-    top: 150px;
-    border-radius: 14px;
-    background-color: rgba(237, 237, 237, 0.55);
+    display: flex;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.64);
     backdrop-filter: blur(5px);
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.173);
+    border-radius: 15px;
+}
+.sheets-container {
+    position: absolute;
+    top: 50px;
+    max-width: 100%;
+    display: flex; /* Configura o contêiner para exibição flexível */
+    flex-direction: column; /* Define a direção do flex para coluna */
+    align-items: flex-start; /* Alinha os itens ao início do eixo transversal (horizontal) */
 }
 .sheet-row{
     width: 100%;
@@ -100,44 +111,46 @@ section.finances-title-section{
 
 
 
-.sheet{
-    /* position: absolute;
-    top: 50px; */
-    min-width: 50%;
-    width: fit-content;
-    min-height: 200px;
-    height: fit-content;
-    margin: 15px;
-    padding: 15px;
-    display: flex;
-    justify-content: center;
-    background-color: rgba(255, 255, 255, 0.64);
-    backdrop-filter: blur(5px);
-    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.173);
-    border-radius: 15px;
-}
-.sheet-container{
-    width: 100%;
-    
-}
+
 .add-button{
     position: relative;
     top: 20px;
-    width: 170px;
-    height: 40px;
-    border-radius: 20px;
-    background-color: var(--color-main-light);
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    cursor: pointer;
+    border-radius: 25px;
+    color: white;
+    background-color: var(--color-main-dark);
+    border: 1px solid var(--color-main-dark);
+    transition: all .5s;
 }
-
-
-.sheets-container {
+.add-button:hover{
+    width: 225px;
+}
+.add-button .text-add{
     position: absolute;
-    top: 50px;
-    max-width: 100%;
-    display: flex; /* Configura o contêiner para exibição flexível */
-    flex-direction: column; /* Define a direção do flex para coluna */
-    align-items: flex-start; /* Alinha os itens ao início do eixo transversal (horizontal) */
+    left: 0;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+.add-button .text-add-sheet{
+    width: max-content;
+    position: absolute;
+    left: 40px;
+    font-size: 0px;
+    transition: .5s;
+}
+.add-button:hover .text-add-sheet{
+    font-size: 20px;
+}
+
 
 .sheets-list {
     display: flex; /* Configura a lista de planilhas para exibição flexível */
@@ -147,4 +160,8 @@ section.finances-title-section{
 
 .sheets-list > div {
     margin-right: 10px; /* Adiciona uma margem entre as planilhas */
+}
+
+.dark {
+    background-color: black;
 }
