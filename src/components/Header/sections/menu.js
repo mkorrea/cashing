@@ -28,7 +28,7 @@ function Menu( ) {
             </Link>
          </li>
          <li className={active === "finances" ? "active" : ""}>
-            <Link to="/finances"> Planilhas
+            <Link to="/planilhas"> Planilhas
                <div className="bar"></div>
             </Link>
          </li>
