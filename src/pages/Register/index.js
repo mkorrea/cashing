@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import UserContext from "./UserContext";
 import Logo from "../../components/Header/sections/logo";
 
@@ -7,9 +7,10 @@ import "./register.css";
 
 function Register(input) {
     const { user, updateUser } = useContext(UserContext);
+    const navigate = useNavigate()
 
     function CompleteCheck() {
-        return user.name && user.familyname && user.email && user.password && user.confirmPassword;
+        return user.firstName && user.lastName && user.email && user.password && user.confirmPassword;
     }
 
     function PasswordCheck() {
@@ -23,6 +24,16 @@ function Register(input) {
     };
 
 
+    function cancel() {
+      user.firstName = ''
+      user.lastName = ''
+      user.email = ''
+      user.password = ''
+      user.confirmPassword = ''
+      updateUser('')
+      navigate('/')
+    }
+
    return (
       <div className="register-background">
          <main className="main-content">
@@ -35,9 +46,9 @@ function Register(input) {
                 <div className="input-component">
                     <input
                         type="text"
-                        value={user.name}
-                        onChange={(e) => updateUser({ ...user, name: e.target.value })}
-                        autoComplete="name"
+                        value={user.firstName}
+                        onChange={(e) => updateUser({ ...user, firstName: e.target.value })}
+                        autoComplete="firstName"
                         placeholder=""
                         autoFocus
                         id="nome"
@@ -47,13 +58,13 @@ function Register(input) {
                 <div className="input-component">
                     <input
                         type="text"
-                        value={user.familyname}
-                        onChange={(e) => updateUser({ ...user, familyname: e.target.value })}
+                        value={user.lastName}
+                        onChange={(e) => updateUser({ ...user, lastName: e.target.value })}
                         autoComplete="family-name"
                         placeholder=""
-                        id="familyname"
+                        id="lastName"
                     />
-                    <label htmlFor='familyname'>Sobrenome</label>
+                    <label htmlFor='lastName'>Sobrenome</label>
                 </div>
                 <div className="input-component">
                     <input
@@ -101,7 +112,8 @@ function Register(input) {
                 <div className={ CompleteCheck() && !PasswordCheck() ? "warning" : 'off-warning'}> As senhas não coincidem </div> 
             </section>
             
-                <Link to='/' className="home-button"> Cancelar </Link>
+                {/* <Link to='/' className="home-button"> Cancelar </Link> */}
+                <div className="home-button" onClick={cancel}>Cancelar</div>
                
          </main>
       </div>

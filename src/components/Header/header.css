@@ -35,7 +35,7 @@ header {
    transform: rotate(320deg);
    transition: transform 0.3s ease;
    filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.265));
-   background: url('../../images/white-icon.png') fixed no-repeat center center;
+   background: url("../../images/white-icon.png") fixed no-repeat center center;
    background-size: contain;
 }
 .logo-container:hover .img {
@@ -49,6 +49,8 @@ header {
    cursor: pointer;
    color: #ffffff;
 }
+
+
 
 .menu {
    display: flex;
@@ -64,10 +66,12 @@ header {
    padding: 5px 15px;
    font-size: 20px;
    list-style-type: none;
-   cursor: pointer;
    user-select: none;
 }
 li a {
+   width: 100px;
+   height: 100%;
+   cursor: pointer;
    width: fit-content;
    text-align: center;
    text-decoration: none;
@@ -98,4 +102,8 @@ li.active .bar {
 }
 li.active:hover .bar {
    background-color: white;
+}
+
+.settings{
+ wght: 100;
 }

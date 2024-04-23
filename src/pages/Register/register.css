@@ -73,7 +73,7 @@ section.input-section {
     font-size: 17px;
     cursor: text;
     user-select: none;
-    border-radius: 11px;
+    border-radius: 2px;
     color: var(--color-neutral);
     background-color: #ffffff;
     transition: all 150ms ease;
@@ -92,10 +92,11 @@ section.input-section {
     font-size: 18px;
     color: var(--color-text);
     border-radius: var(--border-radius);
-    border: 1px solid var(--color-neutral);
+    border: 1px solid var(--color-basic-light);
 }
 .input-section input:focus {
     border: 1px solid var(--color-main);
+    box-shadow: 0px 0px 2px var(--color-main);
     outline: none;
 }
 input.missmatch-password:focus {
@@ -126,16 +127,16 @@ section.button-section {
     font-size: 22px;
     font-weight: bold;
     color: #ffffff;
-    background-color: var(--color-neutral-dark);
+    background-color: var(--color-basic);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
     transition: all .3s ease;
 }
 .button.on {
-    background-color: var(--color-logo-3);
+    background-color: var(--color-main-dark);
 }
 .button.on:hover {
-    background-color: var(--color-logo);
+    background-color: var(--color-main);
 }
 .off-warning {
     color: transparent;
@@ -159,5 +160,6 @@ section.button-section {
     justify-content: center;
     margin: 5px;
     text-decoration: none;
+    cursor: pointer;
     color: var(--color-main);
 }

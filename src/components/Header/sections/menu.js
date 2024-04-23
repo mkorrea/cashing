@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link, useLocation } from "react-router-dom";
 import UserContext from "../../../pages/Register/UserContext";
+import { PersonRounded } from "@mui/icons-material";
 
-function Menu( ) {
+function Menu() {
    const [active, setActive] = useState(null);
    const location = useLocation();
    const { user } = useContext(UserContext);
@@ -19,22 +20,22 @@ function Menu( ) {
       }
    }, [location]);
 
-   
    return (
       <ul className="menu">
          <li className={active === "home" ? "active" : ""}>
-            <Link to="/"> Início
-               <div className="bar"></div>
-            </Link>
+            <Link to="/">  Início   <div className="bar"> </div> </Link>
          </li>
+
          <li className={active === "finances" ? "active" : ""}>
-            <Link to="/planilhas"> Planilhas
-               <div className="bar"></div>
-            </Link>
+            <Link to="/planilhas">  Planilhas   <div className="bar"> </div> </Link>
          </li>
-         <li>
-            <h3> {user.name} </h3>
-         </li>
+
+         <li className="settings"> <PersonRounded/> </li>
+
+            <h3>
+               {user.name}
+            </h3>
+        
       </ul>
    );
 }

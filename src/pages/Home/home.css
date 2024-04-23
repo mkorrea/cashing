@@ -31,7 +31,6 @@ article.login-container {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    color: var(--color-title);
 }
 article .login-input-container {
     width: 70%;
@@ -46,7 +45,7 @@ article .login-input-container input {
     margin: 10px -20% 10px 10px;
     padding: 15px;
     border-radius: 20px 0px 0px 20px;
-    border: 1px solid var(--color-neutral);
+    border: 1px solid var(--color-text-light);
     background-color: rgba(255, 255, 255, 0.024);
     transition: all .5s;
     z-index: 1;
@@ -150,7 +149,8 @@ article.feature-section-title {
 }
 h2 {
     font-size: 1.5em;
-    color: var(--color-title);
+    font-weight: bold;
+    color: var(--color-main-darker);
 }
 article.buttons-wrapper {
     height: 340px;
@@ -192,7 +192,7 @@ article.buttons-wrapper {
 .feature-button h2 {
     width: 100%;
     text-align: center;
-    color: var(--color-title);
+    color: var(--color-main-darker);
 }
 .feature-button p {
     width: 260px;

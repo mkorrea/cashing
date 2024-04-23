@@ -1,9 +1,21 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined';
 
 import Header from "../../components/Header";
 import "./sheets.css";
 
 function Sheets() {
+   const navigate = useNavigate()
+
+   function newDoc() {
+      // gerar id aleatorio no banco de dados
+      navigate("/financas")
+   }
+   
+   function newAnual() {
+      navigate("/anual/" {/* +id aleatorio do banco de dados */}  )
+   }
+   
    return (
       <div>
          <Header />
@@ -11,15 +23,25 @@ function Sheets() {
             
                <section className="intro-docs">
                   <h1>Planilhas</h1>
-                  <span>Inicie seu projeto</span>
+                  <span>Iniciar um novo projeto</span>
                   
                   <article className="docs-container">
-                     <Link to={"/financas"} className="new-doc">
-                        <img
-                           src={require("../../images/plus.png")}
-                           alt="Adicionar planilha"
-                        />
-                     </Link>
+                     <div>
+                        <div className="new-doc" onClick={newDoc}>
+                           <img
+                              src={require("../../images/plus.png")}
+                              alt="Adicionar planilha"
+                           />
+                        </div>
+                        <span>Documento em branco</span>
+                     </div>
+
+                     <div>
+                        <div className="new-doc" onClick={newAnual}>
+                           <CalendarMonthOutlinedIcon/>
+                        </div>
+                        <span>Anual</span>
+                     </div>
                   </article>
                </section>
 
