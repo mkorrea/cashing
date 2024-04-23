@@ -13,7 +13,7 @@ function Sheets() {
    }
    
    function newAnual() {
-      navigate("/anual/" {/* +id aleatorio do banco de dados */}  )
+      navigate("/anual/"/* +id aleatorio do banco de dados */)
    }
    
    return (
@@ -29,7 +29,7 @@ function Sheets() {
                      <div>
                         <div className="new-doc" onClick={newDoc}>
                            <img
-                              src={require("../../images/plus.png")}
+                              src={require("../../assets/icons/plus.png")}
                               alt="Adicionar planilha"
                            />
                         </div>

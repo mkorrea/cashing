@@ -13,8 +13,8 @@ function Menu() {
       const pathname = location.pathname;
       if (pathname === "/") {
          setActive("home");
-      } else if (pathname === "/finances") {
-         setActive("finances");
+      } else if (pathname === "/planilhas") {
+         setActive("planilhas");
       } else {
          setActive(null);
       }
@@ -26,15 +26,12 @@ function Menu() {
             <Link to="/">  Início   <div className="bar"> </div> </Link>
          </li>
 
-         <li className={active === "finances" ? "active" : ""}>
+         <li className={active === "planilhas" ? "active" : ""}>
             <Link to="/planilhas">  Planilhas   <div className="bar"> </div> </Link>
          </li>
 
          <li className="settings"> <PersonRounded/> </li>
 
-            <h3>
-               {user.name}
-            </h3>
         
       </ul>
    );

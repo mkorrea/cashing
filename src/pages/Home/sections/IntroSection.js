@@ -3,13 +3,12 @@ import { Link } from "react-router-dom";
 import UserContext from "../../Register/UserContext";
 
 function IntroSection() {
-   const [input, setInput] = useState('');
    const { user, updateUser } = useContext(UserContext);
    
    return (
       <section className="intro-section">
          <article className="login-container">
-            <h2>Faça seu Cadastro</h2>
+            <h1>Cadastre-se</h1>
             <div className="login-input-container">
                <input
                   type="email"
@@ -21,6 +20,7 @@ function IntroSection() {
                   Criar conta
                </Link>
             </div>
+            <div className="login-text">Já é cadastrado? Faça seu <Link to="/financas">Login</Link> </div>
          </article>
 
          <article className="welcome-container">

@@ -88,6 +88,19 @@ article .login-input-container button a {
     text-decoration: none;
     color: white;
 }
+.login-text {
+   margin-top: 17px;
+   color: var(--color-text-light);
+   z-index: 1;
+}
+.login-text a {
+   color: var(--color-main-darker);
+   cursor: pointer;
+   transition: all 500ms;
+}
+.login-text a:hover {
+   text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.538);
+}
 article.welcome-container {
     width: 50%;
     height: 100%;
@@ -119,7 +132,7 @@ div.intro-background {
     right: 0;
     width: 100%;
     height: 100%;
-    background: url('../../images/bg.png') no-repeat right top fixed;
+    background: url('../../assets/images/bg.png') no-repeat right top fixed;
     background-size: cover;
     opacity: .3;
     z-index: -1;
@@ -147,10 +160,12 @@ article.feature-section-title {
     text-align: center;
     /* background-color: antiquewhite; */
 }
-h2 {
-    font-size: 1.5em;
+h1 {
+   font-family: "Signika Negative", sans-serif;
+    font-size: 2em;
     font-weight: bold;
-    color: var(--color-main-darker);
+    color: var(--color-main);
+
 }
 article.buttons-wrapper {
     height: 340px;

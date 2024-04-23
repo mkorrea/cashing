@@ -32,7 +32,7 @@ section.title-section .logo-container a {
 }
 section.title-section .logo-container .img{
     width: 28px;
-    background: url('../../images/main-color-icon.png') fixed no-repeat center center;
+    background: url('../../assets/icons/logo-main-color.png') fixed no-repeat center center;
     background-size: contain;
 }
 section.title-section .logo-container h1 {

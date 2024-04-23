@@ -35,7 +35,7 @@ header {
    transform: rotate(320deg);
    transition: transform 0.3s ease;
    filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.265));
-   background: url("../../images/white-icon.png") fixed no-repeat center center;
+   background: url("../../assets/icons/logo-white.png") fixed no-repeat center center;
    background-size: contain;
 }
 .logo-container:hover .img {
