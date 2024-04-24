@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 import UserContext from "../../../pages/Cadastro/UserContext";
 import ToggleOffIcon from "@mui/icons-material/ToggleOff";
 import ToggleOnIcon from "@mui/icons-material/ToggleOn";
@@ -11,6 +11,20 @@ function Configs() {
    function handleSettings() {
 setOpenConfigs(!openConfigs)
    }
+
+   useEffect(() => {
+      function handleClickOutside(event) {
+         const settingsContainer = document.querySelector(".settings");
+         if (settingsContainer && !settingsContainer.contains(event.target)) {
+            setOpenConfigs(false);
+         }
+      }
+
+      document.addEventListener("mousedown", handleClickOutside);
+      return () => {
+         document.removeEventListener("mousedown", handleClickOutside);
+      };
+   }, []);
 
    return (
       <li className="settings">
