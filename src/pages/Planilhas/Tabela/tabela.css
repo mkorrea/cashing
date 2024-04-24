@@ -1,0 +1,40 @@
+/*               TABELA              */
+
+/*          Header          */
+.tabela header {
+   height: 50px;
+   justify-content: space-between;
+   padding-left: 5%;
+   padding-right: 5%;
+   background-color: var(--color-basic-lighter);
+   box-shadow: 0px 1px 1px var(--color-basic-light);
+}
+.tabela header .logo-container .img {
+   width: 30px;
+   height: 30px;
+   background: url("../../../assets/icons/logo-main-color.png") fixed no-repeat center center;
+   background-size: contain;
+}
+.tabela header h1 {
+   font-size: 27px;
+   color: var(--color-main);
+}
+.tabela header a {
+   color: var(--color-main-dark);
+}
+.tabela .menu li {
+   font-size: 18px;
+}
+.tabela .menu li .bar {
+   background-color: var(--color-main-dark);
+}
+/*          configurações          */
+.tabela .menu .settings {
+   color: var(--color-main-dark);
+}
+.settings .icon .MuiSvgIcon-root{
+   font-size: 30px;
+}
+.tabela .configs {
+   top: 50px;
+}

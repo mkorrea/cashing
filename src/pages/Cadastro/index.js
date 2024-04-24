@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import UserContext from "./UserContext";
 import Logo from "../../components/Header/sections/logo";
 
-import "./register.css";
+import "./cadastro.css";
 
 function Register(input) {
     const { user, updateUser } = useContext(UserContext);

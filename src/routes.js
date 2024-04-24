@@ -1,9 +1,10 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Home from './pages/Home'
-import Register from './pages/Register'
+import Inicio from './pages/Inicio'
+import Cadastro from './pages/Cadastro'
 import Finances from './pages/Finances'
-import Sheets from "./pages/Sheets";
+import Planilhas from "./pages/Planilhas";
+   import Tabela from './pages/Planilhas/Tabela'
 
 import Error from './pages/Error'
 
@@ -11,10 +12,11 @@ function RoutesApp() {
     return(
         <BrowserRouter>            
             <Routes>
-                <Route path="/" element={ <Home/> } />
-                <Route path="/cadastro" element={ <Register/> } />
+                <Route path="/" element={ <Inicio/> } />
+                <Route path="/cadastro" element={ <Cadastro/> } />
                 <Route path="/financas" element={ <Finances/> } />
-                <Route path="/planilhas" element={ <Sheets/> } />
+                <Route path="/planilhas" element={ <Planilhas/> } />
+                  <Route path="/planilhas/tabela" element={ <Tabela/> } />
 
                 <Route path="*" element={ <Error/>} />
             </Routes>

@@ -18,7 +18,7 @@ header {
    box-shadow: 0px 5px 7px #0d1f2333;
 }
 
-/*  logo  */
+/*        logo       */
 .logo-container {
    user-select: none;
 }
@@ -51,7 +51,7 @@ header {
 }
 
 
-
+/*       menus        */
 .menu {
    display: flex;
    flex-direction: row;
@@ -104,6 +104,40 @@ li.active:hover .bar {
    background-color: white;
 }
 
-.settings{
- wght: 100;
+
+
+
+/*                 Configurações              */
+
+/*          icone          */
+.settings .icon .MuiSvgIcon-root{
+   position: absolute;
+   transform: translate(-50%, -50%);
+   font-size: 35px;
+   cursor: pointer;
+}
+/*       janela de configs     */
+.configs {
+   width: 250px;
+   padding: 15px;
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+   position: absolute;
+   top: 75px;
+   font-size: 17px;
+   border-radius: 15px;
+   color: black;
+   background-color: white;
+   box-shadow: 0px 3px 6px rgb(205, 205, 205);
+}
+.configs .MuiSvgIcon-root{
+   font-size: 35px;
+   cursor: pointer;
+}
+.closed {
+   display: none;
+}
+.opened {
+   display: flex;
 }

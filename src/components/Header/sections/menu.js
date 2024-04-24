@@ -1,12 +1,14 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link, useLocation } from "react-router-dom";
-import UserContext from "../../../pages/Register/UserContext";
-import { PersonRounded } from "@mui/icons-material";
+import UserContext from "../../../pages/Cadastro/UserContext";
+
+import Configs from "./configs";
 
 function Menu() {
    const [active, setActive] = useState(null);
    const location = useLocation();
    const { user } = useContext(UserContext);
+
 
    useEffect(() => {
       // Verifica a localização atual e atualiza o estado ativo conforme necessário
@@ -20,6 +22,7 @@ function Menu() {
       }
    }, [location]);
 
+
    return (
       <ul className="menu">
          <li className={active === "home" ? "active" : ""}>
@@ -30,8 +33,7 @@ function Menu() {
             <Link to="/planilhas">  Planilhas   <div className="bar"> </div> </Link>
          </li>
 
-         <li className="settings"> <PersonRounded/> </li>
-
+         <Configs/>
         
       </ul>
    );

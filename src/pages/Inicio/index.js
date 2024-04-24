@@ -3,9 +3,9 @@ import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import IntroSection from "./sections/IntroSection";
 import FeatureSection from "./sections/FeatureSection";
-import "./home.css";
+import "./inicio.css";
 
-function Home() {
+function Inicio() {
    return (
       <div>
          <Header />
@@ -38,4 +38,4 @@ function Home() {
    );
 }
 
-export default Home;
+export default Inicio;

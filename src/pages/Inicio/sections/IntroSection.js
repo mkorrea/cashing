@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
-import UserContext from "../../Register/UserContext";
+import UserContext from "../../Cadastro/UserContext";
 
 function IntroSection() {
    const { user, updateUser } = useContext(UserContext);

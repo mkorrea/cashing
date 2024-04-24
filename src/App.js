@@ -1,6 +1,6 @@
 import './style.css'
 import RoutesApp from './routes';
-import { UserProvider } from './pages/Register/UserContext';
+import { UserProvider } from './pages/Cadastro/UserContext';
 
 function App() {
   return (

@@ -2,14 +2,14 @@ import { useNavigate } from "react-router-dom";
 import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined';
 
 import Header from "../../components/Header";
-import "./sheets.css";
+import "./planilhas.css";
 
-function Sheets() {
+function Planilhas() {
    const navigate = useNavigate()
 
    function newDoc() {
       // gerar id aleatorio no banco de dados
-      navigate("/financas")
+      navigate("/planilhas/tabela")
    }
    
    function newAnual() {
@@ -56,4 +56,4 @@ function Sheets() {
       </div>
    );
 }
-export default Sheets;
+export default Planilhas;
