@@ -1,4 +1,11 @@
 /*               TABELA              */
+.tabela{
+   position: relative;
+   width: 100%;
+   height: 100vh;
+   background-color: rgb(255, 255, 255);
+}
+
 
 /*          Header          */
 .tabela header {
@@ -10,8 +17,8 @@
    box-shadow: 0px 1px 1px var(--color-basic-light);
 }
 .tabela header .logo-container .img {
-   width: 30px;
-   height: 30px;
+   min-width: 30px;
+   min-height: 30px;
    background: url("../../../assets/icons/logo-main-color.png") fixed no-repeat center center;
    background-size: contain;
 }
@@ -37,4 +44,58 @@
 }
 .tabela .configs {
    top: 50px;
+}
+
+
+
+/*          menu - tabela         */
+.tabela-menu {
+   width: 100%;
+   display: flex;
+   justify-content: end;
+   position: relative;
+   top: 50px;
+}
+.tabela-menu button {
+   height: 25px;
+   margin: 10px;
+}
+
+
+
+/*          tabela          */
+.tabela-container {
+   position: relative;
+   top: 65px;
+}
+.linha-container {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   color: black;
+}
+.linha-container th,td {
+   width: 200px;
+   height: 30px;
+   margin: 0;
+   list-style: none;
+   border: 1px solid rgb(200, 200, 200);
+}
+td {
+   position: relative;
+
+}
+td input {
+   width: 100%;
+   height: 100%;
+}
+td .MuiButtonBase-root.MuiIconButton-root.MuiIconButton-sizeMedium.css-78trlr-MuiButtonBase-root-MuiIconButton-root {
+   position: absolute;
+   top: -5px;
+   right: 0;
+   opacity: 0;
+   transition: opacity 200ms;
+}
+.linha-container:hover .MuiButtonBase-root.MuiIconButton-root.MuiIconButton-sizeMedium.css-78trlr-MuiButtonBase-root-MuiIconButton-root {
+   opacity: 1;
 }

@@ -31,7 +31,10 @@ section.title-section .logo-container a {
     margin-bottom: 15px;
 }
 section.title-section .logo-container .img{
-    width: 28px;
+   width: 28px;
+   min-width: 28px;
+   height: 28px;
+   min-height: 28px;
     background: url('../../assets/icons/logo-main-color.png') fixed no-repeat center center;
     background-size: contain;
 }
