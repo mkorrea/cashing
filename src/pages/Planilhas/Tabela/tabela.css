@@ -89,13 +89,32 @@ td input {
    width: 100%;
    height: 100%;
 }
-td .MuiButtonBase-root.MuiIconButton-root.MuiIconButton-sizeMedium.css-78trlr-MuiButtonBase-root-MuiIconButton-root {
+td button.MuiIconButton-root {
    position: absolute;
    top: -5px;
    right: 0;
    opacity: 0;
    transition: opacity 200ms;
 }
-.linha-container:hover .MuiButtonBase-root.MuiIconButton-root.MuiIconButton-sizeMedium.css-78trlr-MuiButtonBase-root-MuiIconButton-root {
+.linha-container:hover .MuiIconButton-root {
+   opacity: 1;
+}
+
+td button.MuiIconButton-root .delete-outline-icon {
+   position: absolute;
+   top: 7.5px;
+   right: 7.5px;
+   color: rgb(62, 48, 48);
+   transition: all 200ms;
+}
+td button.MuiIconButton-root .delete-icon {
+   opacity: 0;
+   transition: all 200ms;
+   
+}
+td button.MuiIconButton-root:hover .delete-outline-icon {
+   opacity: 0;
+}
+td button.MuiIconButton-root:hover .delete-icon {
    opacity: 1;
 }

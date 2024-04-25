@@ -4,7 +4,8 @@ import { useState, useEffect } from 'react';
 import { db } from '../../../firebaseConnections'
 import { doc, setDoc, collection, addDoc, getDoc, getDocs, updateDoc, deleteDoc } from 'firebase/firestore'
 import { IconButton } from '@mui/material';
-import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
+import DeleteOutlineRoundedIcon from '@mui/icons-material/DeleteOutlineRounded';
+import DeleteRoundedIcon from '@mui/icons-material/DeleteRounded';
 
 function Tabela() {
    const [ linhas, setLinhas ] = useState([])
@@ -127,7 +128,7 @@ function Tabela() {
                         <td> <input type='text' value={linha.categoria} onChange={(e) => handleChange(index, 'categoria', e.target.value)} /> </td>
                         <td> <input type='number' value={linha.valor} onChange={(e) => handleChange(index, 'valor', e.target.value)} /> </td>
                         <td> <input type='text' value={linha.status} onChange={(e) => handleChange(index, 'status', e.target.value)} /> 
-                        <IconButton onClick={() => removerLinha(linha.id)} aria-label="Remover linha"> <DeleteOutlinedIcon /> </IconButton></td>
+                        <IconButton onClick={() => removerLinha(linha.id)} aria-label="Remover linha"> <DeleteOutlineRoundedIcon className='delete-outline-icon' /> <DeleteRoundedIcon className='delete-icon'/> </IconButton></td>
                      </tr>
                   )
                })}
