@@ -96,6 +96,9 @@ td button.MuiIconButton-root {
    opacity: 0;
    transition: opacity 200ms;
 }
+td button.MuiIconButton-root:hover {
+   background-color: transparent;
+}
 .linha-container:hover .MuiIconButton-root {
    opacity: 1;
 }
@@ -109,8 +112,8 @@ td button.MuiIconButton-root .delete-outline-icon {
 }
 td button.MuiIconButton-root .delete-icon {
    opacity: 0;
+   color: rgb(42, 42, 42);
    transition: all 200ms;
-   
 }
 td button.MuiIconButton-root:hover .delete-outline-icon {
    opacity: 0;
