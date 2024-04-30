@@ -82,8 +82,9 @@ function Planilhas() {
                   {planilhas.map( (doc) => {
                      return(
                         <div >
-                           <div className="doc-recent" onClick={openDoc(doc.id)}>
+                           <div className="doc-recent" onClick={() => openDoc(doc.id)}>
                               <img src={require("../../assets/icons/plus.png")} alt="Adicionar planilha"/>
+                              <iframe src={`/planilhas/tabela/${doc.id}`} frameborder="0" scrolling="no"  />
                            </div>
                         </div>
                      )

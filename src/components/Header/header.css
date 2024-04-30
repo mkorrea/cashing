@@ -141,3 +141,6 @@ li.active:hover .bar {
 .opened {
    display: flex;
 }
+.opened h3 a {
+   color: black;
+}

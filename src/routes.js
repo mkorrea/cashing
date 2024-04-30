@@ -16,7 +16,7 @@ function RoutesApp() {
                 <Route path="/cadastro" element={ <Cadastro/> } />
                 <Route path="/financas" element={ <Finances/> } />
                 <Route path="/planilhas" element={ <Planilhas/> } />
-                  <Route path="/planilhas/tabela/:id" element={ <Tabela/> } />
+                  <Route path="/planilhas/tabela/:idDaPlanilha" element={ <Tabela/> } />
 
                 <Route path="*" element={ <Error/>} />
             </Routes>

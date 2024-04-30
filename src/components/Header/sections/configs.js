@@ -1,4 +1,5 @@
 import { useState, useEffect, useContext } from "react";
+import { Link } from 'react-router-dom';
 import UserContext from "../../../pages/Cadastro/UserContext";
 import ToggleOffIcon from "@mui/icons-material/ToggleOff";
 import ToggleOnIcon from "@mui/icons-material/ToggleOn";
@@ -6,10 +7,10 @@ import { PersonRounded } from "@mui/icons-material";
 
 function Configs() {
    const { user, updateUser } = useContext(UserContext);
-   const [ openConfigs, setOpenConfigs ] = useState(false)
+   const [openConfigs, setOpenConfigs] = useState(false);
 
    function handleSettings() {
-setOpenConfigs(!openConfigs)
+      setOpenConfigs(!openConfigs);
    }
 
    useEffect(() => {
@@ -28,14 +29,21 @@ setOpenConfigs(!openConfigs)
 
    return (
       <li className="settings">
-         <div className="icon" onClick={handleSettings} >
+         <div className="icon" onClick={handleSettings}>
             <PersonRounded />
          </div>
 
          <div className={openConfigs ? "opened configs" : "closed configs"}>
-            <h2>Olá, {user.firstName} </h2>
-            <div> Modo escuro: <ToggleOffIcon /> <ToggleOnIcon />{" "} </div>
-            <hr/>
+            {user.firstName.length > 0 ? (
+               <h2>Olá, {user.firstName} </h2>
+            ) : (
+               <h3>Faça seu <Link to={'/Cadastro'}>Login</Link></h3>
+            )}
+            <div>
+               {" "}
+               Modo escuro: <ToggleOffIcon /> <ToggleOnIcon />{" "}
+            </div>
+            <hr />
          </div>
       </li>
    );
