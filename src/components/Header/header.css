@@ -47,7 +47,7 @@ header {
    text-shadow: 2px 2px 3px #2c515647;
    user-select: none;
    cursor: pointer;
-   color: #ffffff;
+   color: var(--color-basic-lighter);
 }
 
 

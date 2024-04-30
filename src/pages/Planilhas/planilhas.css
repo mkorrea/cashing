@@ -26,8 +26,8 @@ article.docs-container {
    color: var(--color-text-dark);
 }
 .new-doc {
-   width: 180px;
-   height: 250px;
+   width: 140px;
+   height: 190px;
    margin: 10px;
    display: flex;
    justify-content: center;
@@ -44,8 +44,8 @@ article.docs-container {
 
 }
 .new-doc img, .new-doc .MuiSvgIcon-root.MuiSvgIcon-fontSizeMedium.css-i4bv87-MuiSvgIcon-root {
-   width: 100px;
-   font-size: 70px;
+   width: 70px;
+   font-size: 45px;
    filter: brightness(.5);
    color: var(--color-basic-lighter);
    transition: all 500ms;
@@ -54,7 +54,86 @@ article.docs-container {
    filter: brightness(1);
    color: var(--color-basic-dark);
 }
+.add-titulo-container {
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background-color: rgba(0, 0, 0, 0.533);
+   backdrop-filter: blur(2px);
+   z-index: 2; /* Deve ser menor do que a janela flutuante (z-index: 3) para que fique por trás dela */
+   
+}
+.add-titulo{
+   position: relative;
+   min-width: 400px;
+   width: 50%;
+   height: 270px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
+   background-color: white;
+   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.336);
+   border-radius: 10px;
+   z-index: 3;
+}
+.add-titulo input {
+   width: 80%;
+   height: 45px;
+   margin-top: 10px;
+   padding: 10px;
+   font-size: 25px;
+   border-radius: 10px;
+   border: 0.5px solid var(--color-main-dark);
+   color: var(--color-basic-dark);
+   transition: all 200ms;
+}
+.add-titulo input:focus {
+   border: 0.5px solid var(--color-main-darker);
+   box-shadow: 0px 0px 4px var(--color-main-dark);
+   outline: none;
+}
+button.acessar-planilha{
+   position: absolute;
+   bottom: 0;
+   right: 0;
+   margin: 17px;
+   width: 140px;
+   height: 40px;
+   border-radius: 8px;
+   border: none;
+   font-size: 15px;
+   font-weight: bolder;
+   cursor: pointer;
+   color: var(--color-basic-lighter);
+   background-color: var(--color-main-dark);
+   transition: all 200ms;
+}
+button.acessar-planilha:hover{
+   background-color: var(--color-main);
+}
+button.fechar-janela{
+   position: absolute;
+   top: 0;
+   right: 0;
+   margin: 8px 17px;
+   font-weight: bolder;
+   font-size: 30px;
+   cursor: pointer;
+   border: none;
+   color: var(--color-main);
+   background-color: transparent;
+}
 
+
+
+
+
+
+/*          planilhas recentes           */
 section.recent{
    width: 100%;
    height: 250px;
@@ -63,6 +142,26 @@ section.recent{
    align-items: center;
    flex-direction: column;
 }
-.recent span{
-   margin-top: 150px;
+.recentes-container{
+   width: 100%;
+   display: flex;
+   justify-content: start;
+   flex-direction: row;
+}
+.doc-recente{
+   width: 210px;
+   height: 140px;
+   margin: 10px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   text-decoration: none;
+   cursor: pointer;
+   border-radius: 5px;
+   background-color: #fff;
+   box-shadow: var(--box-shadow);
+   transition: all 500ms;
+}
+.doc-recente span{
+   
 }

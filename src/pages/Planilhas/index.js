@@ -1,72 +1,88 @@
 import "./planilhas.css";
 import Header from "../../components/Header";
 
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { db } from '../../firebaseConnections'
-import { doc, collection, addDoc, setDoc, getDoc, getDocs, updateDoc, deleteDoc,} from "firebase/firestore";
+import { doc, collection, setDoc, getDocs} from "firebase/firestore";
+import { v4 as uuidv4 } from 'uuid'; // gerar IDs únicos
 import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined';
-import { v4 as uuidv4 } from 'uuid'; // Importe a função uuidv4 para gerar IDs únicos
-import { useEffect, useState } from "react";
 
 
 function Planilhas() {
-   const [ planilhas, setPlanilhas ] = useState([])
+   const [ mostrarJanela, setMostrarJanela ] = useState(false);
+   const [ planilhas, setPlanilhas ] = useState([]);
    const navigate = useNavigate();
    
    useEffect(()=>{
       const recentes = async () => {
-         const docsRef = collection(db, 'planilha')
+         const docsRef = collection(db, 'planilha');
          try {
-            const docSnapshot = await getDocs(docsRef)
-            const recentes = docSnapshot.docs
-            setPlanilhas(recentes)
+            const docSnapshot = await getDocs(docsRef);
+            const recentes = docSnapshot.docs;
+            setPlanilhas(recentes);
          } catch(error) {
-            console.error(error)
+            console.error(error);
          }
-      }
-      recentes()
-   })
+      };
+      recentes();
+   }, []);
 
-   
-   async function newDoc() {
-      const id = uuidv4(); // Gerar ID aleatório usando uuidv4
+
+//       adicionar nova planilha
+   async function abrirDoc() {
+      const tituloInput = document.querySelector('.add-titulo input');
+      let docId = tituloInput.value.trim() || `planilha sem nome:${uuidv4()}`
       try {
-         const docRef = await setDoc(doc(db, 'planilha', id), { })
-         setPlanilhas(docRef)
+         await setDoc(doc(db, 'planilha', docId), {});
+         const docsRef = collection(db, 'planilha');
+         const docSnapshot = await getDocs(docsRef);
+         setPlanilhas(docSnapshot.docs);
+         navigate(`/planilhas/tabela/${docId}`);
       } catch (error) {
-         console.error('erro ao adicionar planilha ao banco de dados: ' + error)
+         console.error('Erro ao adicionar planilha ao banco de dados: ' + error);
       }
-      
-      navigate(`/planilhas/tabela/${id}`); 
    }
    
-   function openDoc(id) {
+
+   function abrirRecente(id) {
       navigate(`/planilhas/tabela/${id}`); 
    }
    
    function newAnual() {
-      const id = uuidv4(); // Gerar ID aleatório usando uuidv4
+      const id = uuidv4();
       navigate(`/anual/${id}`);
    }
-   
    
       
       return (
       <div>
          <Header />
          <div className="docs-background">
-            
+            {mostrarJanela && (
+               <div className="add-titulo-container">
+                  <div className="add-titulo">
+                     <h2> Dê um título à sua planilha: </h2>
+                     <input type="text" autoFocus></input>
+                     <button className="acessar-planilha" onClick={() => { abrirDoc(); setMostrarJanela(false); }}> Acessar Planilha </button>
+
+                     <button className="fechar-janela" onClick={() => setMostrarJanela(false)}> ✖ </button>
+                  </div>
+               </div>
+            )}
+
                <section className="intro-docs">
                   <h1>Planilhas</h1>
-                  <span>Iniciar um novo projeto</span>
+                  <span>Iniciar uma nova planilha</span>
                   
                   <article className="docs-container">
-                     <div>
-                        <div className="new-doc" onClick={newDoc}>
-                           <img src={require("../../assets/icons/plus.png")} alt="Adicionar planilha" />
-                        </div>
-                        <span>Documento em branco</span>
+
+                  <div>
+                     <div className="new-doc" onClick={() => setMostrarJanela(true)} >
+                        <img src={require("../../assets/icons/plus.png")} alt="Adicionar planilha" />
                      </div>
+                     <span>Planilha em branco</span>
+                  </div>
 
                      <div>
                         <div className="new-doc" onClick={newAnual}>
@@ -77,20 +93,22 @@ function Planilhas() {
                   </article>
                </section>
 
+
                <section className="recent">
-                  <h2>Recentes</h2>
-                  {planilhas.map( (doc) => {
-                     return(
-                        <div >
-                           <div className="doc-recent" onClick={() => openDoc(doc.id)}>
-                              <img src={require("../../assets/icons/plus.png")} alt="Adicionar planilha"/>
-                              <iframe src={`/planilhas/tabela/${doc.id}`} frameborder="0" scrolling="no"  />
+                  <h2>Planilhas recentes</h2>
+                  <div className="recentes-container">
+                  {planilhas !== null && planilhas.map( (doc) => {
+                        return(
+                           <div className="doc-recente" onClick={() => abrirRecente(doc.id)}>
+                              <span>{doc.id.startsWith('planilha sem nome') ? 'Planilha sem nome' : doc.id}</span>
                            </div>
-                        </div>
-                     )
-                  })}
+                        )
+                     })}
+                  </div>
                   <div>
-                     <span>Nenhuma planilha criada ainda!</span>
+                     {planilhas.length === 0 && 
+                        <span>Nenhuma planilha criada ainda!</span>
+                     }
                   </div>
                </section>
                
