@@ -7,6 +7,7 @@ import { db } from '../../firebaseConnections'
 import { doc, collection, setDoc, getDocs} from "firebase/firestore";
 import { v4 as uuidv4 } from 'uuid'; // gerar IDs únicos
 import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined';
+import EditRoundedIcon from '@mui/icons-material/EditRounded';
 
 
 function Planilhas() {
@@ -100,6 +101,7 @@ function Planilhas() {
                   {planilhas !== null && planilhas.map( (doc) => {
                         return(
                            <div className="doc-recente" onClick={() => abrirRecente(doc.id)}>
+                              <EditRoundedIcon/>
                               <span>{doc.id.startsWith('planilha sem nome') ? 'Planilha sem nome' : doc.id}</span>
                            </div>
                         )
