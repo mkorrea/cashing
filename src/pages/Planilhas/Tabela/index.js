@@ -10,26 +10,43 @@ import DeleteOutlineRoundedIcon from "@mui/icons-material/DeleteOutlineRounded";
 import DeleteRoundedIcon from "@mui/icons-material/DeleteRounded";
 
 function Tabela() {
-   const [linhas, setLinhas] = useState([]);
+   const [ linhas, setLinhas ] = useState([]);
    const { idDaPlanilha } = useParams();
+   const [ loading, setLoading ] = useState(true)
 
    useEffect(() => {
       const carregarDados = async () => {
          try {
-               const planilhaRef = doc(db, 'planilha', idDaPlanilha);
-               const querySnapshot = await getDocs(collection(planilhaRef, 'tabela'));
-               const linhasData = querySnapshot.docs.map(doc => ({
-                  id: doc.id,
-                  ...doc.data(),
-               }));
-               linhasData.sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
-               setLinhas(linhasData);
+            const planilhaRef = doc(db, 'planilha', idDaPlanilha);
+            const querySnapshot = await getDocs(collection(planilhaRef, 'tabela'));
+            const linhasData = querySnapshot.docs.map(doc => ({
+               id: doc.id,
+               ...doc.data(),
+            }));
+            linhasData.sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
+            setLinhas(linhasData);
+
+            // Definir o estado de loading como falso após 500ms (meio segundo)
+            setTimeout(() => {
+               setLoading(false);
+            }, 400);
          } catch (error) {
-               console.error('Erro ao carregar dados:', error);
+            console.error('Erro ao carregar dados:', error);
          }
       };
       carregarDados();
    }, [idDaPlanilha]);
+
+   if(loading) {
+      return(
+         <div className="tabela">
+            <Header/>
+            <div className="loading">
+               <img src={require('../../../assets/icons/logo-main-color.png')} alt="loading"/>
+            </div>
+         </div>
+      )
+    }
 
    const adicionarLinha = async () => {
       const timestamp = new Date().toISOString();
@@ -77,6 +94,10 @@ function Tabela() {
    };
        
        //         Adicionar api unsplash - adicionar id da foto que usuario escolher no banco de dados
+
+
+
+
 
    return (
          <div className="tabela">
