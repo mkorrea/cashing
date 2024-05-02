@@ -76,106 +76,91 @@ function Tabela() {
       }
    };
        
-       
+       //         Adicionar api unsplash - adicionar id da foto que usuario escolher no banco de dados
 
    return (
-      <div className="tabela">
-         <Header />
-         <div className="tabela-menu">
-            <button onClick={adicionarLinha}>Adicionar linha</button>
+         <div className="tabela">
+            <Header />
+
+            <div className="tabela-container">
+               <table>
+                  <thead>
+                     <tr className="linha-container">
+                        <th className="data"> Data </th>
+                        <th className="descricao"> Descrição </th>
+                        <th className="categoria"> Categoria </th>
+                        <th className="valor"> Valor </th>
+                        <th className="status"> Status </th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     {linhas.map((linha, index) => {
+                        return (
+                           <tr key={linha.id} className="linha-container">
+                              <td>
+                                 <input
+                                    type="text"
+                                    value={linha.data}
+                                    className="data"
+                                    onChange={(e) => handleChange(index, "data", e.target.value)}
+                                 />
+                              </td>
+                              <td>
+                                 <input
+                                    type="text"
+                                    value={linha.descricao}
+                                    className="descricao"
+                                    onChange={(e) => handleChange( index,"descricao", e.target.value)}
+                                 />
+                              </td>
+                              <td>
+                                 <select className={linha.categoria === 'pago' ? 'categoria pago' : 'categoria a-pagar'} value={linha.categoria} onChange={(e) => handleChange( index, "categoria", e.target.value )}>
+                                    <option disabled hidden value=''> </option>
+                                       <optgroup label="Gastos">
+                                          <option className="gastos" value='assinatura'> Assinatura </option>
+                                          <option className="gastos" value='assinatura'> Compra online </option>
+                                          <option className="gastos" value='assinatura'> Transporte </option>
+
+                                          <option className="gastos" value='assinatura'> Outros </option>
+                                       </optgroup>
+                                       <optgroup label="Ganhos">
+                                          <option className="ganhos" value=''> Salário </option>
+                                       </optgroup>
+                                 </select>
+                              </td>
+                              <td>
+                                 <input
+                                    type="number"
+                                    value={linha.valor}
+                                    className="valor"
+                                    onChange={(e) => handleChange(index, "valor", e.target.value)
+                                    }
+                                 />
+                              </td>
+                              <td>
+                                 <select className={linha.status === 'pago' ? 'status pago' : 'status a-pagar'} value={linha.status || ""} onChange={(e) => handleChange(index, "status", e.target.value)}>
+                                    <option disabled hidden value=''> </option>
+                                    <option className="pago" value='pago'> Pago </option>
+                                    <option className="a-pagar" value='a pagar'> A pagar </option>
+                                 </select>
+                                 <IconButton
+                                    onClick={() => removerLinha(linha.id)}
+                                    aria-label="Remover linha"
+                                 >
+                                    <DeleteOutlineRoundedIcon className="delete-outline-icon" />{" "}
+                                    <DeleteRoundedIcon className="delete-icon" />{" "}
+                                 </IconButton>
+                              </td>
+                           </tr>
+                        );
+                     })}
+                  </tbody>
+               </table>
+               <div className="tabela-menu">
+                  <button onClick={adicionarLinha}>Adicionar linha</button>
+               </div>
+            </div>
          </div>
-         <div className="tabela-container">
-            <table>
-               <thead>
-                  <tr className="linha-container">
-                     <th>Data</th>
-                     <th>Descrição</th>
-                     <th>Categoria</th>
-                     <th>Valor</th>
-                     <th>Status</th>
-                  </tr>
-               </thead>
-               <tbody>
-                  {linhas.map((linha, index) => {
-                     return (
-                        <tr key={linha.id} className="linha-container">
-                           <td>
-                              <input
-                                 type="text"
-                                 value={linha.data}
-                                 className="input-data"
-                                 onChange={(e) =>
-                                    handleChange(index, "data", e.target.value)
-                                 }
-                              />
-                           </td>
-                           <td>
-                              <input
-                                 type="text"
-                                 value={linha.descricao}
-                                 className="input-descricao"
-                                 onChange={(e) =>
-                                    handleChange(
-                                       index,
-                                       "descricao",
-                                       e.target.value
-                                    )
-                                 }
-                              />
-                           </td>
-                           <td>
-                              <input
-                                 type="text"
-                                 value={linha.categoria}
-                                 className="input-categoria"
-                                 onChange={(e) =>
-                                    handleChange(
-                                       index,
-                                       "categoria",
-                                       e.target.value
-                                    )
-                                 }
-                              />
-                           </td>
-                           <td>
-                              <input
-                                 type="number"
-                                 value={linha.valor}
-                                 className="input-valor"
-                                 onChange={(e) =>
-                                    handleChange(index, "valor", e.target.value)
-                                 }
-                              />
-                           </td>
-                           <td>
-                              <input
-                                 type="text"
-                                 value={linha.status}
-                                 className="input-status"
-                                 onChange={(e) =>
-                                    handleChange(
-                                       index,
-                                       "status",
-                                       e.target.value
-                                    )
-                                 }
-                              />
-                              <IconButton
-                                 onClick={() => removerLinha(linha.id)}
-                                 aria-label="Remover linha"
-                              >
-                                 
-                                 <DeleteOutlineRoundedIcon className="delete-outline-icon" />{" "}
-                                 <DeleteRoundedIcon className="delete-icon" />{" "}
-                              </IconButton>
-                           </td>
-                        </tr>
-                     );
-                  })}
-               </tbody>
-            </table>
-         </div>
-      </div>
    );
 }
 
