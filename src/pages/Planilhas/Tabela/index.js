@@ -29,7 +29,7 @@ function Tabela() {
             // Definir o estado de loading como falso após 500ms (meio segundo)
             setTimeout(() => {
                setLoading(false);
-            }, 400);
+            }, 100);
          } catch (error) {
             console.error('Erro ao carregar dados:', error);
          }
@@ -135,17 +135,17 @@ function Tabela() {
                                  />
                               </td>
                               <td>
-                                 <select className={linha.categoria === 'pago' ? 'categoria pago' : 'categoria a-pagar'} value={linha.categoria} onChange={(e) => handleChange( index, "categoria", e.target.value )}>
+                                 <select className='categoria' value={linha.categoria} onChange={(e) => handleChange( index, "categoria", e.target.value )}>
                                     <option disabled hidden value=''> </option>
                                        <optgroup label="Gastos">
                                           <option className="gastos" value='assinatura'> Assinatura </option>
-                                          <option className="gastos" value='assinatura'> Compra online </option>
-                                          <option className="gastos" value='assinatura'> Transporte </option>
+                                          <option className="gastos" value='compra online'> Compra online </option>
+                                          <option className="gastos" value='transporte'> Transporte </option>
 
-                                          <option className="gastos" value='assinatura'> Outros </option>
+                                          <option className="gastos" value='outros'> Outros </option>
                                        </optgroup>
                                        <optgroup label="Ganhos">
-                                          <option className="ganhos" value=''> Salário </option>
+                                          <option className="ganhos" value='salario'> Salário </option>
                                        </optgroup>
                                  </select>
                               </td>
@@ -153,7 +153,7 @@ function Tabela() {
                                  <input
                                     type="number"
                                     value={linha.valor}
-                                    className="valor"
+                                    className={linha.valor >= 0 ? 'valor pos' : 'valor neg'}
                                     onChange={(e) => handleChange(index, "valor", e.target.value)
                                     }
                                  />
@@ -164,14 +164,12 @@ function Tabela() {
                                     <option className="pago" value='pago'> Pago </option>
                                     <option className="a-pagar" value='a pagar'> A pagar </option>
                                  </select>
-                                 <IconButton
-                                    onClick={() => removerLinha(linha.id)}
-                                    aria-label="Remover linha"
-                                 >
-                                    <DeleteOutlineRoundedIcon className="delete-outline-icon" />{" "}
-                                    <DeleteRoundedIcon className="delete-icon" />{" "}
-                                 </IconButton>
                               </td>
+                              <IconButton onClick={() => removerLinha(linha.id)} aria-label="Remover linha">
+                                 <DeleteOutlineRoundedIcon className="delete-outline-icon" />{" "}
+                                 <DeleteRoundedIcon className="delete-icon" />{" "}
+                              </IconButton>
+                              
                            </tr>
                         );
                      })}
