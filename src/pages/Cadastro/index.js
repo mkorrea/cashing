@@ -1,34 +1,54 @@
-import React, { useContext } from "react";
+import "./cadastro.css";
+
+import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import UserContext from "./UserContext";
 import Logo from "../../components/Header/sections/logo";
+import { auth } from '../../firebaseConnections'
+import { createUserWithEmailAndPassword } from 'firebase/auth'
 
-import "./cadastro.css";
 
 function Register(input) {
     const { user, updateUser } = useContext(UserContext);
+    const [ email, setEmail ] = useState('')
+    const [ senha, setSenha ] = useState('')
     const navigate = useNavigate()
 
+
+   
+
+
+    async function handleRegister() {
+       await createUserWithEmailAndPassword(auth, email, senha)
+       .then(()=>{
+          console.log('Usuario cadastrado')
+          setEmail('')
+          setSenha('')
+       })
+       .catch((error)=>{
+          console.log(`Erro as cadastrar: ${error}`)
+       })
+       //   if (CompleteCheck() && PasswordCheck()) {
+       //       return "/";
+       //   }
+     };
+
+
+
     function CompleteCheck() {
-        return user.firstName && user.lastName && user.email && user.password && user.confirmPassword;
+        return user.name && user.email && user.password && user.confirmPassword;
     }
 
     function PasswordCheck() {
         return user.password === user.confirmPassword;
     }
 
-    const handleRegisterClick = () => {
-        if (CompleteCheck() && PasswordCheck()) {
-            return "/";
-        }
-    };
 
 
     function cancel() {
-      user.firstName = ''
-      user.lastName = ''
-      user.email = ''
-      user.password = ''
+      user.name = ''
+      setEmail('')
+      setSenha('')
       user.confirmPassword = ''
       updateUser('')
       navigate('/')
@@ -46,8 +66,8 @@ function Register(input) {
                 <div className="input-component">
                     <input
                         type="text"
-                        value={user.firstName}
-                        onChange={(e) => updateUser({ ...user, firstName: e.target.value })}
+                        value={user.name}
+                        onChange={(e) => updateUser({ ...user, name: e.target.value })}
                         autoComplete="firstName"
                         placeholder=""
                         autoFocus
@@ -55,22 +75,12 @@ function Register(input) {
                     />
                     <label htmlFor='nome'>Nome</label>
                 </div>
-                <div className="input-component">
-                    <input
-                        type="text"
-                        value={user.lastName}
-                        onChange={(e) => updateUser({ ...user, lastName: e.target.value })}
-                        autoComplete="family-name"
-                        placeholder=""
-                        id="lastName"
-                    />
-                    <label htmlFor='lastName'>Sobrenome</label>
-                </div>
+
                 <div className="input-component">
                     <input
                         type="email"
-                        value={input.length > 1 ? updateUser(input) : user.email}
-                        onChange={(e) => updateUser({ ...user, email: e.target.value })}
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
                         placeholder=""
                         autoComplete='none'
                         id="email"
@@ -80,8 +90,8 @@ function Register(input) {
                 <div className="input-component">
                     <input
                         type="password"
-                        value={user.password}
-                        onChange={(e) => updateUser({ ...user, password: e.target.value })}
+                        value={senha}
+                        onChange={(e) => setSenha(e.target.value)}
                         placeholder=""
                         autoComplete='none'
                         id="password"
@@ -104,11 +114,10 @@ function Register(input) {
 
             <section className="button-section">
                 <Link 
-                    to={handleRegisterClick()} 
+                    to='#' 
                     className={CompleteCheck() ? 'button on' : 'button'} 
-                    onClick={handleRegisterClick}> Cadastrar
+                    onClick={handleRegister}> Cadastrar
                 </Link>
-                {/* <div className={ !CompleteCheck() ? "warning" : 'off-warning' }> Por favor, preencha todos os campos </div> */}
                 <div className={ CompleteCheck() && !PasswordCheck() ? "warning" : 'off-warning'}> As senhas não coincidem </div> 
             </section>
             

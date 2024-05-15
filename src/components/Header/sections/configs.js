@@ -34,8 +34,8 @@ function Configs() {
          </div>
 
          <div className={openConfigs ? "opened configs" : "closed configs"}>
-            {user.firstName.length > 0 ? (
-               <h2>Olá, {user.firstName} </h2>
+            {user.name.length > 0 ? (
+               <h2>Olá, {user.name} </h2>
             ) : (
                <h3>Faça seu <Link to={'/Cadastro'}>Login</Link></h3>
             )}

@@ -137,7 +137,10 @@ div.intro-background {
     opacity: .3;
     z-index: -1;
 }
-
+.pc-img {
+   width: 300px;
+   opacity: .9;
+}
 
 
 
