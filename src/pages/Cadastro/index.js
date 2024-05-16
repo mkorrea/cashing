@@ -14,6 +14,7 @@ function Register() {
     const [ nome, setNome ] = useState('')
     const [ email, setEmail ] = useState('')
     const [ senha, setSenha ] = useState('')
+    const [ senhaCheck, setSenhaCheck ] = useState('')
     const navigate = useNavigate()
 
 
@@ -33,6 +34,7 @@ function Register() {
             nome: nome,
           })
           
+          navigate('/', {replace: true})
        } catch (error) {
           console.log(`Erro as cadastrar: ${error}`)
        }
@@ -45,12 +47,19 @@ function Register() {
 
 
     function CompleteCheck() {
-   //      return user.name && user.email && user.password && user.confirmPassword;
+        return nome && email && senha;
     }
 
-    function PasswordCheck() {
-   //      return user.password === user.confirmPassword;
-    }
+   function PasswordCheck() {
+      if( senhaCheck.length >= senha.length ) {
+         
+         if( senha !== senhaCheck ) {
+            return 'senhas diferentes'
+         } else {
+            return 'senhas ok'
+         }
+      }
+   }
 
 
 
@@ -71,66 +80,68 @@ function Register() {
                <h1 className="title"> Cadastre-se </h1>
             </section>
 
-            <section className="input-section">
-                <div className="input-component">
-                    <input
-                        type="text"
-                        value={nome}
-                        onChange={(e) => setNome(e.target.value)}
-                        autoComplete="firstName"
-                        placeholder=""
-                        autoFocus
-                        id="nome"
-                    />
-                    <label htmlFor='nome'>Nome</label>
-                </div>
-
-                <div className="input-component">
-                    <input
-                        type="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        placeholder=""
-                        autoComplete='none'
-                        id="email"
-                    />
-                    <label htmlFor='email'>Email</label>
-                </div>
-                <div className="input-component">
-                    <input
-                        type="password"
-                        value={senha}
-                        onChange={(e) => setSenha(e.target.value)}
-                        placeholder=""
-                        autoComplete='none'
-                        id="password"
-                    />
-                    <label htmlFor='password'>Senha</label>
-                </div>
-                <div className="input-component">
-                    <input
-                        type="password"
-                        // value={user.confirmPassword}
-                        // onChange={(e) => updateUser({ ...user, confirmPassword: e.target.value })}
-                        placeholder=""
-                        
-                        autoComplete='none'
-                        id="confirmPassword"
-                        // className={ !PasswordCheck()  ? 'missmatch-password' : '' }
-                        />
-                    <label htmlFor='confirmPassword'>Confirme a senha</label>
-                </div>
-            </section>
-
-            <section className="button-section">
-                <Link 
-                    to='/' 
-                    className={CompleteCheck() ? 'button on' : 'button'} 
-                    onClick={handleRegister}> Cadastrar
-                </Link>
-                <div className={ CompleteCheck() && !PasswordCheck() ? "warning" : 'off-warning'}> As senhas não coincidem </div> 
-            </section>
             
+                <form className="cadastro" onSubmit={handleRegister}>
+                   <div className="input-component">
+                       <input
+                           type="text"
+                           value={nome}
+                           onChange={(e) => setNome(e.target.value)}
+                           autoComplete="firstName"
+                           placeholder=""
+                           autoFocus
+                           id="nome"
+                       />
+                       <label htmlFor='nome'>Nome</label>
+                   </div>
+                   <div className="input-component">
+                       <input
+                           type="email"
+                           value={email}
+                           onChange={(e) => setEmail(e.target.value)}
+                           placeholder=""
+                           autoComplete='none'
+                           id="email"
+                       />
+                       <label htmlFor='email'>Email</label>
+                   </div>
+                   <div className="input-component">
+                       <input
+                           // type="password"
+                           value={senha}
+                           onChange={(e) => setSenha(e.target.value)}
+                           placeholder=""
+                           autoComplete='none'
+                           id="password"
+                       />
+                       <label htmlFor='password'>Senha</label>
+                   </div>
+                   <div className="input-component">
+                       <input
+                           // type="password"
+                           value={senhaCheck}
+                           onChange={(e) => setSenhaCheck(e.target.value)}
+                           placeholder=""
+                   
+                           autoComplete='none'
+                           id="confirmPassword"
+                           className={ !PasswordCheck()  ? 'missmatch-password' : '' }
+                           />
+                       <label htmlFor='confirmPassword'>Confirme a senha</label>
+                   </div>
+                
+
+            
+                <div className="btn-cadastro">
+                   <button
+                       type="submit"
+                       className={CompleteCheck() && PasswordCheck() === 'senhas ok' ? 'button on' : 'button'}>
+                       Cadastrar
+                   </button>
+                  <div className={ CompleteCheck() && PasswordCheck() === 'senhas diferentes' ? "warning" : 'off-warning'}> As senhas não coincidem </div> 
+                </div>
+           
+            </form>
                 {/* <Link to='/' className="home-button"> Cancelar </Link> */}
                 <div className="home-button" onClick={cancel}>Cancelar</div>
                

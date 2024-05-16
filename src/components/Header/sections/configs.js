@@ -28,7 +28,7 @@ function Configs() {
                
             } else {
                setLogado(false)
-               
+               setUsername('')
             }
          })
       }
@@ -68,23 +68,27 @@ function Configs() {
       <li className="settings">
          <div className="icon" onClick={handleSettings}>
             <PersonRounded />
+            {!openConfigs && logado ? 
+            <p className="nome-login"> {username} </p> 
+            : 
+            <p className="nome-login off"> {username} </p> 
+            }
          </div>
 
          <div className={openConfigs ? "opened configs" : "closed configs"}>
             { logado ? 
                <h2>Olá, {username} </h2>
                :
-               <h3><Link to={'/Cadastro'}>Entrar / Cadastrar</Link></h3>
+               <h3> <Link to='/login'> Entrar </Link> / <Link to='/Cadastro'> Cadastrar </Link></h3>
             }
 
             
             <div>
-               {" "}
                Modo escuro: <ToggleOffIcon /> <ToggleOnIcon />{" "}
             </div>
             <hr />
-            <button onClick={handleLogout}>Sair</button>
-            </div>
+            <button className="sair" onClick={handleLogout}>Sair</button>
+         </div>
       </li>
    );
 }

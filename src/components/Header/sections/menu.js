@@ -10,6 +10,7 @@ function Menu() {
    const { user } = useContext(UserContext);
 
 
+
    useEffect(() => {
       // Verifica a localização atual e atualiza o estado ativo conforme necessário
       const pathname = location.pathname;
@@ -34,7 +35,8 @@ function Menu() {
          </li>
 
          <Configs/>
-        
+
+         
       </ul>
    );
 }
