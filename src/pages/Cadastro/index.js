@@ -4,12 +4,14 @@ import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import UserContext from "./UserContext";
 import Logo from "../../components/Header/sections/logo";
-import { auth } from '../../firebaseConnections'
+import { auth, db } from '../../firebaseConnections'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
+import { setDoc, collection, doc } from "firebase/firestore";
 
 
-function Register(input) {
-    const { user, updateUser } = useContext(UserContext);
+function Register() {
+   //  const { user, updateUser } = useContext(UserContext);
+    const [ nome, setNome ] = useState('')
     const [ email, setEmail ] = useState('')
     const [ senha, setSenha ] = useState('')
     const navigate = useNavigate()
@@ -19,39 +21,46 @@ function Register(input) {
 
 
     async function handleRegister() {
-       await createUserWithEmailAndPassword(auth, email, senha)
-       .then(()=>{
+       try {
+          const userInfo = await createUserWithEmailAndPassword(auth, email, senha)
+          const user = userInfo.user
+          const uid = user.uid
           console.log('Usuario cadastrado')
           setEmail('')
           setSenha('')
-       })
-       .catch((error)=>{
+
+          await setDoc(doc(db, 'user', uid ), {
+            nome: nome,
+          })
+          
+       } catch (error) {
           console.log(`Erro as cadastrar: ${error}`)
-       })
-       //   if (CompleteCheck() && PasswordCheck()) {
-       //       return "/";
-       //   }
+       }
+
      };
 
 
 
+
+
+
     function CompleteCheck() {
-        return user.name && user.email && user.password && user.confirmPassword;
+   //      return user.name && user.email && user.password && user.confirmPassword;
     }
 
     function PasswordCheck() {
-        return user.password === user.confirmPassword;
+   //      return user.password === user.confirmPassword;
     }
 
 
 
     function cancel() {
-      user.name = ''
-      setEmail('')
-      setSenha('')
-      user.confirmPassword = ''
-      updateUser('')
-      navigate('/')
+   //    user.name = ''
+   //    setEmail('')
+   //    setSenha('')
+   //    user.confirmPassword = ''
+   //    updateUser('')
+   //    navigate('/')
     }
 
    return (
@@ -66,8 +75,8 @@ function Register(input) {
                 <div className="input-component">
                     <input
                         type="text"
-                        value={user.name}
-                        onChange={(e) => updateUser({ ...user, name: e.target.value })}
+                        value={nome}
+                        onChange={(e) => setNome(e.target.value)}
                         autoComplete="firstName"
                         placeholder=""
                         autoFocus
@@ -101,20 +110,21 @@ function Register(input) {
                 <div className="input-component">
                     <input
                         type="password"
-                        value={user.confirmPassword}
-                        onChange={(e) => updateUser({ ...user, confirmPassword: e.target.value })}
+                        // value={user.confirmPassword}
+                        // onChange={(e) => updateUser({ ...user, confirmPassword: e.target.value })}
                         placeholder=""
                         
                         autoComplete='none'
                         id="confirmPassword"
-                        className={ !PasswordCheck()  ? 'missmatch-password' : '' }/>
+                        // className={ !PasswordCheck()  ? 'missmatch-password' : '' }
+                        />
                     <label htmlFor='confirmPassword'>Confirme a senha</label>
                 </div>
             </section>
 
             <section className="button-section">
                 <Link 
-                    to='#' 
+                    to='/' 
                     className={CompleteCheck() ? 'button on' : 'button'} 
                     onClick={handleRegister}> Cadastrar
                 </Link>

@@ -1,0 +1,169 @@
+:root {
+   --color-error: #ff5353
+}
+
+
+.register-background{  
+   min-height: 100vh;
+   background-color: rgb(245, 245, 245);
+}
+main.main-content {
+   width: 20%;
+   min-width: 400px;
+   margin-bottom: 150px;
+   padding: 20px;
+   top: 100px;
+   border-radius: var(--border-radius);
+   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.164);
+   background-color: #ffffff;
+}
+
+
+/*  Title  */
+section.title-section {
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+}
+section.title-section .logo-container a {
+   margin-bottom: 15px;
+}
+section.title-section .logo-container .img{
+  width: 28px;
+  min-width: 28px;
+  height: 28px;
+  min-height: 28px;
+   background: url('../../assets/icons/logo-main-color.png') fixed no-repeat center center;
+   background-size: contain;
+}
+section.title-section .logo-container h1 {
+   font-size: 30px;
+   color: var(--color-main);
+}
+.title{
+   margin-top: 10px;
+   margin-bottom: -10px;
+   font-size: 21px;
+}
+
+
+
+/*  input  */
+section.input-section {
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   margin-top: 20px
+}
+.input-section .input-component {
+   width: 100%;
+   position: relative;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+}
+.input-component label {
+   height: 22px;
+   padding: 0px 8px;
+   position: absolute;
+   top: 24px;
+   left: 9%;
+   text-align: start;
+   font-size: 17px;
+   cursor: text;
+   user-select: none;
+   border-radius: 2px;
+   color: var(--color-neutral);
+   background-color: #ffffff;
+   transition: all 150ms ease;
+}
+.input-component input:not(:placeholder-shown) + label,
+.input-component input:focus + label {
+   top: 1px;
+   font-size: 13px;
+   left: 8%;
+}
+.input-section input {
+   width: 90%;
+   height: 50px;
+   margin: 9px 0px;
+   padding: 13px 20px;
+   font-size: 18px;
+   color: var(--color-text);
+   border-radius: var(--border-radius);
+   border: 1px solid var(--color-basic-light);
+}
+.input-section input:focus {
+   border: 1px solid var(--color-main);
+   box-shadow: 0px 0px 2px var(--color-main);
+   outline: none;
+}
+input.missmatch-password:focus {
+   border: 1px solid var(--color-main);
+}
+input.missmatch-password {
+   border: 1.5px solid var(--color-error);
+}
+
+/*  botão  */
+section.button-section {
+   width: 100%;
+   height: 70px;
+   position: relative;
+   display: flex;
+   justify-content: start;
+   align-items: center;
+   flex-direction: column;
+   margin: 15px 0px;
+}
+.button {
+   width: 90%;
+   height: 50px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   text-decoration: none;
+   font-size: 22px;
+   font-weight: bold;
+   color: #ffffff;
+   background-color: var(--color-basic);
+   border-radius: var(--border-radius);
+   box-shadow: var(--box-shadow);
+   transition: all .3s ease;
+}
+.button.on {
+   background-color: var(--color-main-dark);
+}
+.button.on:hover {
+   background-color: var(--color-main);
+}
+.off-warning {
+   color: transparent;
+   user-select: none;
+}
+
+.warning {
+   content: 'Por favor, preencha todos os campos';
+   width: 100%;
+   text-align: center;
+   position: absolute;
+   left: 0;
+   bottom: -3px;
+   font-size: 15px;
+   color: var(--color-error);
+}
+
+
+.home-button {
+   display: flex;
+   justify-content: center;
+   margin: 5px;
+   text-decoration: none;
+   cursor: pointer;
+   color: var(--color-main);
+}

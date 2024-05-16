@@ -1,13 +1,44 @@
 import { useState, useEffect, useContext } from "react";
 import { Link } from 'react-router-dom';
 import UserContext from "../../../pages/Cadastro/UserContext";
+import { auth, db } from '../../../firebaseConnections'
+import { onAuthStateChanged, signOut } from "firebase/auth";
+import { getDoc, doc } from "firebase/firestore";
+
 import ToggleOffIcon from "@mui/icons-material/ToggleOff";
 import ToggleOnIcon from "@mui/icons-material/ToggleOn";
 import { PersonRounded } from "@mui/icons-material";
 
 function Configs() {
-   const { user, updateUser } = useContext(UserContext);
+   // const { user, updateUser } = useContext(UserContext);
    const [openConfigs, setOpenConfigs] = useState(false);
+
+   const [ logado, setLogado ] = useState(false)
+   const [ username, setUsername ] = useState('')
+
+   useEffect( ()=>{
+      async function checkLogin() {
+         onAuthStateChanged(auth, (user)=>{
+            if(user){
+               setLogado(true)
+               getDoc(doc(db, 'user', user.uid))
+               .then((snapshot)=>{
+                  setUsername(snapshot.data().nome)
+               })
+               
+            } else {
+               setLogado(false)
+               
+            }
+         })
+      }
+      checkLogin()
+   }, [])
+
+
+
+
+
 
    function handleSettings() {
       setOpenConfigs(!openConfigs);
@@ -27,6 +58,12 @@ function Configs() {
       };
    }, []);
 
+
+   async function handleLogout() {
+      await signOut(auth)
+   }
+
+
    return (
       <li className="settings">
          <div className="icon" onClick={handleSettings}>
@@ -34,17 +71,20 @@ function Configs() {
          </div>
 
          <div className={openConfigs ? "opened configs" : "closed configs"}>
-            {user.name.length > 0 ? (
-               <h2>Olá, {user.name} </h2>
-            ) : (
-               <h3>Faça seu <Link to={'/Cadastro'}>Login</Link></h3>
-            )}
+            { logado ? 
+               <h2>Olá, {username} </h2>
+               :
+               <h3><Link to={'/Cadastro'}>Entrar / Cadastrar</Link></h3>
+            }
+
+            
             <div>
                {" "}
                Modo escuro: <ToggleOffIcon /> <ToggleOnIcon />{" "}
             </div>
             <hr />
-         </div>
+            <button onClick={handleLogout}>Sair</button>
+            </div>
       </li>
    );
 }
