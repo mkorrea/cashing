@@ -12,10 +12,15 @@ export default function Private ({ children }) {
       async function checkLogin(){
          const unsub = onAuthStateChanged(auth, (user)=>{
             if(user){
+               const userData = {
+                  uid: user.uid,
+                  email: user.email
+               }
+               localStorage.setItem( '@userDetail', JSON.stringify(userData))
                setLoading(false)
                setSigned(true)
-            } else {
-               setLoading(true)
+            }  else {
+               setLoading(false)
                setSigned(false)
             }
          })
@@ -25,12 +30,17 @@ export default function Private ({ children }) {
    
    if(loading) {
       return(
-         <div></div>
+         <div className="tabela">
+         
+         <div className="loading">
+            <img src={require('../assets/icons/logo-main-color.png')} alt="loading"/>
+         </div>
+      </div>
       )
    }
    
-   if(signed) {
-      return <Navigate to='/planilhas'/>
+   if(!signed) {
+      return <Navigate to='/login'/>
    }
    
    return children

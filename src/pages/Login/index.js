@@ -1,11 +1,10 @@
 import "./login.css";
 
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Logo from "../../components/Header/sections/logo";
 import { auth } from '../../firebaseConnections'
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth'
-import { Password } from "@mui/icons-material";
+import { signInWithEmailAndPassword } from 'firebase/auth'
 
 
 export default function Login() {
@@ -14,26 +13,8 @@ export default function Login() {
     const navigate = useNavigate()
 
 
-   
-
-
-    async function handleRegister() {
-       await createUserWithEmailAndPassword(auth, email, senha)
-       .then(()=>{
-          console.log('Usuario cadastrado')
-          setEmail('')
-          setSenha('')
-       })
-       .catch((error)=>{
-          console.log(`Erro as cadastrar: ${error}`)
-       })
-       //   if (CompleteCheck() && PasswordCheck()) {
-       //       return "/";
-       //   }
-     };
-
-
-   async function handleLogin(){
+   async function handleLogin(event){
+      event.preventDefault()
       await signInWithEmailAndPassword(auth, email, senha)
       .then(()=>{
          console.log('Usuário logado!')
@@ -46,6 +27,9 @@ export default function Login() {
       })
    }  
 
+   function CompleteCheck() {
+      return email && senha
+   }
 
     function cancel() {
       setEmail('')
@@ -62,41 +46,42 @@ export default function Login() {
                <h1 className="title"> Login </h1>
             </section>
 
-            <section className="input-section">
 
-                <div className="input-component">
-                    <input
-                        type="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        placeholder=""
-                        autoComplete='none'
-                        id="email"
-                    />
-                    <label htmlFor='email'>Email</label>
+            <form className="cadastro" onSubmit={handleLogin}>
+                   <div className="input-component">
+                       <input
+                           type="email"
+                           value={email}
+                           onChange={(e) => setEmail(e.target.value)}
+                           placeholder=""
+                           autoComplete='none'
+                           id="email"
+                       />
+                       <label htmlFor='email'>Email</label>
+                   </div>
+                   <div className="input-component">
+                       <input
+                           type="password"
+                           value={senha}
+                           onChange={(e) => setSenha(e.target.value)}
+                           placeholder=""
+                           autoComplete='none'
+                           id="password"
+                       />
+                       <label htmlFor='password'>Senha</label>
+                   </div>
+            
+                <div className="btn-cadastro">
+                   <button
+                       type="submit"
+                       className={CompleteCheck() ? 'button on' : 'button'}>
+                       Entrar
+                   </button>
                 </div>
-                <div className="input-component">
-                    <input
-                        type="password"
-                        value={senha}
-                        onChange={(e) => setSenha(e.target.value)}
-                        placeholder=""
-                        autoComplete='none'
-                        id="password"
-                    />
-                    <label htmlFor='password'>Senha</label>
-                </div>
-            </section>
-
-            <section className="button-section">
-                <Link 
-                    to='#' 
-                    className={email && senha.length >= 6 ? 'button on' : 'button'} 
-                    onClick={handleLogin}> Entrar
-                </Link>
-
-            </section>
-                <div className="home-button" onClick={cancel}>Voltar</div>
+           
+            </form>
+            <div className="cadastro-link">Não possui conta ?<Link to='/cadastro'> Cadastre-se</Link></div>
+                <div className="btn-voltar" onClick={cancel}>Voltar</div>
                
          </main>
       </div>

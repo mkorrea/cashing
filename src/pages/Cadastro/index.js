@@ -21,7 +21,8 @@ function Register() {
    
 
 
-    async function handleRegister() {
+    async function handleRegister(event) {
+      event.preventDefault()
        try {
           const userInfo = await createUserWithEmailAndPassword(auth, email, senha)
           const user = userInfo.user
@@ -107,7 +108,7 @@ function Register() {
                    </div>
                    <div className="input-component">
                        <input
-                           // type="password"
+                           type="password"
                            value={senha}
                            onChange={(e) => setSenha(e.target.value)}
                            placeholder=""
@@ -118,7 +119,7 @@ function Register() {
                    </div>
                    <div className="input-component">
                        <input
-                           // type="password"
+                           type="password"
                            value={senhaCheck}
                            onChange={(e) => setSenhaCheck(e.target.value)}
                            placeholder=""

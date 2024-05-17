@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from "react";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import UserContext from "../../../pages/Cadastro/UserContext";
 import { auth, db } from '../../../firebaseConnections'
 import { onAuthStateChanged, signOut } from "firebase/auth";
@@ -12,6 +12,7 @@ import { PersonRounded } from "@mui/icons-material";
 function Configs() {
    // const { user, updateUser } = useContext(UserContext);
    const [openConfigs, setOpenConfigs] = useState(false);
+   const navigate = useNavigate()
 
    const [ logado, setLogado ] = useState(false)
    const [ username, setUsername ] = useState('')
@@ -61,6 +62,7 @@ function Configs() {
 
    async function handleLogout() {
       await signOut(auth)
+      navigate('/')
    }
 
 
