@@ -14,7 +14,8 @@ body {
 
 /*  intro section  */
 section.intro-section {
-    width: 80%;
+    width: 70%;
+    max-width: 1600px;
     height: 400px;
     margin: 20px 0px;
     display: flex;

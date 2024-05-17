@@ -9,6 +9,7 @@ function IntroSection() {
       <section className="intro-section">
          <article className="login-container">
             <div className="welcome-text">
+               <h1>Sistema para controle financeiro</h1>
                <div>
                   Gerenciar suas finanças pode ser desafiador, mas estamos aqui
                   para tornar isso mais simples e eficiente para você.

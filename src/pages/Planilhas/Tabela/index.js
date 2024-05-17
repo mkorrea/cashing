@@ -97,8 +97,6 @@ function Tabela() {
 
 
 
-
-
    return (
          <div className="tabela">
             <Header />
@@ -120,7 +118,7 @@ function Tabela() {
                            <tr key={linha.id} className="linha-container">
                               <td>
                                  <input
-                                    type="text"
+                                    type="date"
                                     value={linha.data}
                                     className="data"
                                     onChange={(e) => handleChange(index, "data", e.target.value)}
@@ -139,7 +137,7 @@ function Tabela() {
                                     <option disabled hidden value=''> </option>
                                        <optgroup label="Gastos">
                                           <option className="gastos" value='assinatura'> Assinatura </option>
-                                          <option className="gastos" value='compra online'> Compra online </option>
+                                          <option className="gastos" value='compra online'> Compra onlineonlineonlineonline </option>
                                           <option className="gastos" value='transporte'> Transporte </option>
 
                                           <option className="gastos" value='outros'> Outros </option>
@@ -151,7 +149,7 @@ function Tabela() {
                               </td>
                               <td>
                                  <input
-                                    type="number"
+                                    type="text"
                                     value={linha.valor}
                                     className={linha.valor >= 0 ? 'valor pos' : 'valor neg'}
                                     onChange={(e) => handleChange(index, "valor", e.target.value)
@@ -159,7 +157,7 @@ function Tabela() {
                                  />
                               </td>
                               <td>
-                                 <select className={linha.status === 'pago' ? 'status pago' : 'status a-pagar'} value={linha.status || ""} onChange={(e) => handleChange(index, "status", e.target.value)}>
+                                 <select className={linha.status === 'pago' ? 'status pago' : (linha.status === 'a pagar' && 'status a-pagar')} value={linha.status || ""} onChange={(e) => handleChange(index, "status", e.target.value)}>
                                     <option disabled hidden value=''> </option>
                                     <option className="pago" value='pago'> Pago </option>
                                     <option className="a-pagar" value='a pagar'> A pagar </option>

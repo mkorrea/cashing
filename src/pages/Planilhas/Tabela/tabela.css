@@ -104,7 +104,7 @@
    justify-content: center;
    flex-direction: column;
    border-radius: 15px;
-   background-color: rgba(229, 237, 237, 0.875);
+   background-color: rgba(238, 243, 243, 0.909);
    backdrop-filter: blur(3px);
    box-shadow: 0px 0px 18px rgba(171, 207, 207, 0.621);
 }
@@ -149,7 +149,7 @@ td select:focus {
    outline: none;
 }
 .data {
-   width: 70px;
+   width: 130px;
    text-align: center;
    border-left: none;
    border-right: none;
@@ -157,14 +157,21 @@ td select:focus {
 .descricao {
    width: 400px;
 }
+.descricao:focus{
+   font-size: 14px;
+}
 .categoria {
    width: 150px;
    text-align: center;
+   border: none;
 }
 .valor {
-   color: var(--color-basic);
    width: 150px;
    border-right: none;
+}
+.valor:focus{
+   color: rgb(73, 73, 73);
+   text-align: center;
 }
 .pos{
    color: green;
@@ -180,6 +187,10 @@ td select:focus {
    width: 80px;
    text-align: center;
    border-radius: 8px;
+}
+td select option {
+   display: flex;
+   justify-content: center;
 }
 .pago {
    background-color: rgb(145, 219, 190);
