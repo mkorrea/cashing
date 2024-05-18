@@ -6,8 +6,47 @@
    display: flex;
    flex-direction: column;
    align-items: center;
-   background: url('../../../assets/images/bg-tabela.jpg') no-repeat center center fixed;
-   background-size: cover;
+}
+.tabela > img {
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+   object-position: center center;
+}
+.tabela .bg-icon {
+   position: absolute;
+   bottom: 25px;
+   right: 25px;
+   font-size: 40px;
+   cursor: pointer;
+}
+.tabela .change-bg {
+   position: absolute;
+   /* max-width: 400px; */
+   width: 600px;
+   height: calc(100% - 50px);
+   right: 0;
+   bottom: 0;
+   background-color: rgb(247, 247, 247);
+   border-radius: 15px;
+   z-index: 5;
+}
+.change-bg .img-list {
+   width: 100%;
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   background-color: aquamarine;
+}
+.img-list > div {
+   background-color: bisque;
+}
+.img-list img {
+   width: 180px;
+   height: 101px;
+   object-fit: cover;
+   object-position: center center;
 }
 
 

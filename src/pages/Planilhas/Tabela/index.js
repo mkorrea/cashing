@@ -8,11 +8,16 @@ import { doc, collection, addDoc, getDoc, getDocs, updateDoc, deleteDoc,} from "
 import { IconButton } from "@mui/material";
 import DeleteOutlineRoundedIcon from "@mui/icons-material/DeleteOutlineRounded";
 import DeleteRoundedIcon from "@mui/icons-material/DeleteRounded";
+import CollectionsIcon from '@mui/icons-material/Collections';
+
+import api from "../../../services/api";
+
 
 function Tabela() {
    const [ linhas, setLinhas ] = useState([]);
    const { idDaPlanilha } = useParams();
    const [ loading, setLoading ] = useState(true)
+   const [ imagens, setImagens ] = useState([])
 
    useEffect(() => {
       const carregarDados = async () => {
@@ -34,7 +39,24 @@ function Tabela() {
             console.error('Erro ao carregar dados:', error);
          }
       };
+
+      // carregar api de imagens Unsplash
+      const carregarImagens = async () => {
+         try {
+            const response = await api.get('photos', {
+               params: {
+                  per_page: 5
+               }
+            })
+            setImagens(response.data)
+         } catch (error) {
+            console.log(`Erro ao carregar imagens: ${error}`)
+         }
+      }
+
       carregarDados();
+      carregarImagens()
+      console.log(imagens)
    }, [idDaPlanilha]);
 
    if(loading) {
@@ -96,10 +118,24 @@ function Tabela() {
        //         Adicionar api unsplash - adicionar id da foto que usuario escolher no banco de dados
 
 
-
-   return (
+       
+       return (
          <div className="tabela">
             <Header />
+            <img src={require('../../../assets/images/bg-tabela.jpg')} alt="img-background" />
+            <CollectionsIcon className="bg-icon"/>
+            <div className="change-bg">
+               <h2>Alterar plano de fundo</h2>
+               {imagens.map((img)=>{
+                  return(
+                     <div className="img-list">
+                        <div key={img.id} >
+                           <img src={img.urls.thumb} alt="imagem unsplash"/>
+                        </div>
+                     </div>
+                  )
+               })}
+            </div>
 
             <div className="tabela-container">
                <table>
@@ -153,7 +189,7 @@ function Tabela() {
                                     value={linha.valor}
                                     className={linha.valor >= 0 ? 'valor pos' : 'valor neg'}
                                     onChange={(e) => handleChange(index, "valor", e.target.value)
-                                    }
+                                 }
                                  />
                               </td>
                               <td>
