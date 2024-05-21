@@ -32,6 +32,7 @@ function Planilhas() {
                   ...doc.data()
                });
             });
+         console.log(planilhas)
             setPlanilhas(lista);
          });
 

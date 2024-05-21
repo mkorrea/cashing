@@ -4,7 +4,7 @@ import Header from "../../../components/Header";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { db } from "../../../firebaseConnections";
-import { doc, collection, addDoc, getDoc, getDocs, updateDoc, deleteDoc,} from "firebase/firestore";
+import { doc, collection, addDoc, getDocs, setDoc, updateDoc, deleteDoc,} from "firebase/firestore";
 import { IconButton } from "@mui/material";
 import DeleteOutlineRoundedIcon from "@mui/icons-material/DeleteOutlineRounded";
 import DeleteRoundedIcon from "@mui/icons-material/DeleteRounded";
@@ -18,6 +18,7 @@ function Tabela() {
    const { idDaPlanilha } = useParams();
    const [ loading, setLoading ] = useState(true)
    const [ imagens, setImagens ] = useState([])
+   const [ background, setBackground ] = useState('')
 
    useEffect(() => {
       const carregarDados = async () => {
@@ -45,7 +46,7 @@ function Tabela() {
          try {
             const response = await api.get('photos', {
                params: {
-                  per_page: 5
+                  per_page: 20
                }
             })
             setImagens(response.data)
@@ -56,7 +57,6 @@ function Tabela() {
 
       carregarDados();
       carregarImagens()
-      console.log(imagens)
    }, [idDaPlanilha]);
 
    if(loading) {
@@ -115,25 +115,35 @@ function Tabela() {
       }
    };
        
+
+   async function mudarFundo(img) {
+      const docRef = doc(db, 'planilha', idDaPlanilha, 'tabela', 'background');
+      await setDoc(docRef, {
+         background: img
+      })
+      setBackground(img);
+   }
+
        //         Adicionar api unsplash - adicionar id da foto que usuario escolher no banco de dados
 
-       
+
        return (
          <div className="tabela">
             <Header />
-            <img src={require('../../../assets/images/bg-tabela.jpg')} alt="img-background" />
+            <img src={background || (require('../../../assets/images/bg-tabela.jpg'))} alt="img-background" />
             <CollectionsIcon className="bg-icon"/>
             <div className="change-bg">
                <h2>Alterar plano de fundo</h2>
-               {imagens.map((img)=>{
-                  return(
-                     <div className="img-list">
-                        <div key={img.id} >
-                           <img src={img.urls.thumb} alt="imagem unsplash"/>
-                        </div>
-                     </div>
-                  )
-               })}
+               <div className="img-list">
+                  {imagens.map((img)=>{
+                     return(
+                           <div className="img-container" key={img.id} onClick={() => {
+                                 mudarFundo(img.urls?.full)} }>
+                              <img  src={img.urls?.thumb} alt="imagem unsplash"/>
+                           </div>
+                     )
+                  })}
+               </div>
             </div>
 
             <div className="tabela-container">
@@ -199,8 +209,8 @@ function Tabela() {
                                  </select>
                               </td>
                               <IconButton onClick={() => removerLinha(linha.id)} aria-label="Remover linha">
-                                 <DeleteOutlineRoundedIcon className="delete-outline-icon" />{" "}
-                                 <DeleteRoundedIcon className="delete-icon" />{" "}
+                                 <DeleteOutlineRoundedIcon className="delete-outline-icon" />
+                                 <DeleteRoundedIcon className="delete-icon" />
                               </IconButton>
                               
                            </tr>
