@@ -6,6 +6,8 @@ import FeatureSection from "./sections/FeatureSection";
 import "./inicio.css";
 
 function Inicio() {
+
+
    return (
       <div>
          <Header />

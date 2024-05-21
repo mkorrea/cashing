@@ -117,7 +117,6 @@ function Tabela() {
        
        //         Adicionar api unsplash - adicionar id da foto que usuario escolher no banco de dados
 
-
        
        return (
          <div className="tabela">
@@ -173,7 +172,7 @@ function Tabela() {
                                     <option disabled hidden value=''> </option>
                                        <optgroup label="Gastos">
                                           <option className="gastos" value='assinatura'> Assinatura </option>
-                                          <option className="gastos" value='compra online'> Compra onlineonlineonlineonline </option>
+                                          <option className="gastos" value='compra online'> Compra online </option>
                                           <option className="gastos" value='transporte'> Transporte </option>
 
                                           <option className="gastos" value='outros'> Outros </option>
