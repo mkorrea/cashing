@@ -9,6 +9,8 @@ import { IconButton } from "@mui/material";
 import DeleteOutlineRoundedIcon from "@mui/icons-material/DeleteOutlineRounded";
 import DeleteRoundedIcon from "@mui/icons-material/DeleteRounded";
 import CollectionsIcon from '@mui/icons-material/Collections';
+import PerfectScrollbar from 'react-perfect-scrollbar';
+import 'react-perfect-scrollbar/dist/css/styles.css';
 
 import api from "../../../services/api";
 
@@ -18,6 +20,7 @@ function Tabela() {
    const { idDaPlanilha } = useParams();
    const [ loading, setLoading ] = useState(true)
    const [ imagens, setImagens ] = useState([])
+   const [ bgOpen, setBgOpen ] = useState(false)
    const [ background, setBackground ] = useState('')
 
    useEffect(() => {
@@ -46,7 +49,7 @@ function Tabela() {
          try {
             const response = await api.get('photos', {
                params: {
-                  per_page: 20
+                  per_page: 30
                }
             })
             setImagens(response.data)
@@ -58,6 +61,22 @@ function Tabela() {
       carregarDados();
       carregarImagens()
    }, [idDaPlanilha]);
+
+   // fechar "alterar background"
+   useEffect(() => {
+      function handleClickOutside(event) {
+         const settingsContainer = document.querySelector(".change-bg");
+         if (settingsContainer && !settingsContainer.contains(event.target)) {
+            setBgOpen(false);
+         }
+      }
+
+      document.addEventListener("mousedown", handleClickOutside);
+      return () => {
+         document.removeEventListener("mousedown", handleClickOutside);
+      };
+   }, []);
+
 
    if(loading) {
       return(
@@ -116,6 +135,14 @@ function Tabela() {
    };
        
 
+   function handleBackgrounds() {
+      if(!bgOpen) {
+         setBgOpen(true)
+      } else {
+         setBgOpen(false)
+      }
+   }
+
    async function mudarFundo(img) {
       const docRef = doc(db, 'planilha', idDaPlanilha, 'tabela', 'background');
       await setDoc(docRef, {
@@ -124,6 +151,9 @@ function Tabela() {
       setBackground(img);
    }
 
+   
+
+
        //         Adicionar api unsplash - adicionar id da foto que usuario escolher no banco de dados
 
 
@@ -131,19 +161,25 @@ function Tabela() {
          <div className="tabela">
             <Header />
             <img src={background || (require('../../../assets/images/bg-tabela.jpg'))} alt="img-background" />
-            <CollectionsIcon className="bg-icon"/>
-            <div className="change-bg">
+
+            <CollectionsIcon className={ !bgOpen ? "bg-icon" : "bg-icon close"} onClick={handleBackgrounds}/>
+
+            <div className= { bgOpen ? "change-bg" : "change-bg closed" }>
                <h2>Alterar plano de fundo</h2>
+               <PerfectScrollbar className="scrollbar">
                <div className="img-list">
                   {imagens.map((img)=>{
                      return(
-                           <div className="img-container" key={img.id} onClick={() => {
-                                 mudarFundo(img.urls?.full)} }>
-                              <img  src={img.urls?.thumb} alt="imagem unsplash"/>
+                        <div key={img.id} onClick={() => mudarFundo(img.urls?.full) }>
+                           <div className="img-container">
+                              <img src={img.urls?.thumb} alt="imagem unsplash"/>
+                              <span> <a href={img.links.html} target="_blank"> {img.user.name}</a> </span>
                            </div>
+                        </div>
                      )
                   })}
                </div>
+               </PerfectScrollbar>
             </div>
 
             <div className="tabela-container">

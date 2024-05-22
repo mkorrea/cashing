@@ -6,6 +6,7 @@
    display: flex;
    flex-direction: column;
    align-items: center;
+   overflow-x: hidden;
 }
 .tabela > img {
    position: absolute;
@@ -20,20 +21,41 @@
    right: 25px;
    font-size: 40px;
    cursor: pointer;
+   color: #919595;
+   /* background-image: radial-gradient(rgba(66, 64, 64, 0.545), transparent); */
+   transition: right 400ms ease, color 100ms;
+}
+.tabela .bg-icon:hover {
+   color: #c1c7c7;
+}
+.tabela .bg-icon.close {
+   right: 525px;
 }
 .tabela .change-bg {
    position: absolute;
-   /* max-width: 400px; */
-   width: 520px;
-   height: calc(100% - 50px);
+   width: 500px;
+   height: calc(90% - 50px);
    right: 0;
    bottom: 0;
-   background-color: rgb(255, 255, 255);
-   border-radius: 15px;
-   z-index: 5;
    display: flex;
    align-items: center;
    flex-direction: column;
+   border-radius: 15px 0px 0px 15px;
+   background-color: rgb(255, 255, 255);
+   box-shadow: -2px 0px 6px rgba(55, 55, 55, 0.304);
+   transition: right 400ms ease;
+   z-index: 5;
+}
+.change-bg.closed {
+   right: -500px;
+}
+.ps {
+   display: flex;
+   justify-content: center;
+   margin-right: 5px;
+}
+.scrollbar .ps__rail-y {
+   background-color: blue;
 }
 .change-bg h2 {
    padding: 8px;
@@ -45,38 +67,68 @@
    flex-direction: row;
    flex-wrap: wrap;
    justify-content: center;
-   overflow-y: scroll;
 }
-.img-list::-webkit-scrollbar-track {
-   background: none;
-}
-.img-list::-webkit-scrollbar-thumb {
-   background-color: aquamarine;
-}
-.img-list .img-container {
+.img-list > div {
+   position: relative;
    margin: 10px;
    width: 215px;
    height: 121px;
    cursor: pointer;
    border-radius: 10px;
 }
-.img-list img {
+.img-container {
    width: 215px;
    height: 121px;
+   border-radius: 10px;
+
+   transition: all 400ms;
+}
+.img-list img {
+   width: 100%;
+   height: 100%;
    object-fit: cover;
    object-position: center center;
    border-radius: 10px;
    transition: all 400ms;
-   box-shadow: 0px 0px 8px rgba(73, 73, 73, 0.673);
+   box-shadow: 0px 0px 8px rgba(73, 73, 73, 0.494);
 }
-.img-list img:hover {
-   box-shadow: 0px 0px 20px rgba(41, 41, 41, 0.512);
+.img-list .img-container:hover {
+   box-shadow: 0px 0px 16px rgba(72, 72, 72, 0.294);
    width: 225px;
    height: 126px;
    margin-left: -5px;
    margin-top: -2.5px;
 }
-
+.img-container span {
+   position: absolute;
+   bottom: 0;
+   right: 0;
+   width: 100%;
+   padding: 2px 0px;
+   font-size: 13px;
+   font-weight: 500;
+   text-align: end;
+   text-shadow: 1px 1px 0px rgba(164, 164, 164, 0.833);
+   
+   background-color: rgba(29, 29, 29, 0.127);
+   border-radius: 0px 0px 10px 10px;
+   transition: all 400ms;
+}
+.img-list .img-container:hover span {
+   width: 225px;
+   margin-right: -5px;
+   margin-bottom: -2.5px;
+}
+.img-container span a {
+   text-decoration: none;
+   color: black;
+   transition: all 100ms;
+}
+.img-container span a:hover {
+   text-decoration: none;
+   color: rgb(165, 217, 216);
+   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.992);
+}
 
 
 
