@@ -49,6 +49,31 @@
 .change-bg.closed {
    right: -500px;
 }
+.change-bg .search-container {
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   padding-bottom: 8px;
+   box-shadow: 0px 8px 10px rgba(255, 255, 255, 0.897);
+   z-index: 1;
+}
+.search-image {
+   width: 90%;   
+   height: 40px;
+   padding: 20px 15px;
+   font-size: 15px;
+   color: var(--color-basic-dark);
+   border-radius: 20px;
+   border: 1px solid var(--color-main-dark);
+   z-index: 8;
+   transition: all 150ms;
+}
+.search-image:focus {
+   outline: none;
+   color: #000;
+   border: 1px solid var(--color-main);
+   box-shadow: 0px 0px 5px var(--color-main-darker);
+}
 .ps {
    display: flex;
    justify-content: center;

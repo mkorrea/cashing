@@ -22,6 +22,7 @@ function Tabela() {
    const [ imagens, setImagens ] = useState([])
    const [ bgOpen, setBgOpen ] = useState(false)
    const [ background, setBackground ] = useState('')
+   const [ searchQuery, setSearchQuery ] = useState('')
 
    useEffect(() => {
       const carregarDados = async () => {
@@ -121,6 +122,33 @@ function Tabela() {
       }
    };
 
+
+   async function handleSearchChange(query) {
+      setSearchQuery(query)
+
+      if(query.length > 2) {
+         try {
+            const response = await api.get('search/photos', {
+               params: {
+                  query, 
+                  per_page: 30
+               }
+            })
+            setImagens(response.data.results)
+         } catch (err) {
+            console.log(err)
+         }
+      } else if(query.length < 2) {
+         const response = await api.get('photos', {
+            params: {
+               per_page: 30
+            }
+         })
+         setImagens(response.data)
+      }
+   }
+
+
    const handleChange = async (index, field, value) => {
       const linhaAtualizada = { ...linhas[index], [field]: value };
       const novasLinhas = [...linhas];
@@ -166,6 +194,13 @@ function Tabela() {
 
             <div className= { bgOpen ? "change-bg" : "change-bg closed" }>
                <h2>Alterar plano de fundo</h2>
+               <div className="search-container">
+                  <input
+                     className="search-image"
+                     type="text"
+                     placeholder="Pesquisar imagens..."
+                     onChange={(e)=> handleSearchChange(e.target.value)} />
+               </div>
                <PerfectScrollbar className="scrollbar">
                <div className="img-list">
                   {imagens.map((img)=>{

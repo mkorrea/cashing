@@ -1,16 +1,14 @@
 import "./cadastro.css";
 
-import React, { useContext, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import UserContext from "./UserContext";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Logo from "../../components/Header/sections/logo";
 import { auth, db } from '../../firebaseConnections'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
-import { setDoc, collection, doc } from "firebase/firestore";
+import { setDoc, doc } from "firebase/firestore";
 
 
 function Register() {
-   //  const { user, updateUser } = useContext(UserContext);
     const [ nome, setNome ] = useState('')
     const [ email, setEmail ] = useState('')
     const [ senha, setSenha ] = useState('')
@@ -64,13 +62,13 @@ function Register() {
 
 
 
-    function cancel() {
-   //    user.name = ''
-   //    setEmail('')
-   //    setSenha('')
-   //    user.confirmPassword = ''
-   //    updateUser('')
-   //    navigate('/')
+   function cancel() {
+      setNome('');
+      setEmail('');
+      setSenha('');
+      setSenhaCheck('');
+    
+      navigate('/')
     }
 
    return (

@@ -8,7 +8,8 @@ import Planilhas from "../pages/Planilhas";
    import Tabela from '../pages/Planilhas/Tabela'
 import Private from "./Private";
 
-import Error from '../pages/Error'
+import { Manutencao } from '../pages/Manutencao'
+import { Error } from '../pages/Error'
 
 function RoutesApp() {
     return(
@@ -21,6 +22,7 @@ function RoutesApp() {
                 <Route path="/planilhas" element={ <Private> <Planilhas/> </Private> } />
                   <Route path="/planilhas/tabela/:idDaPlanilha" element={ <Tabela/> } />
 
+                <Route path="/manutencao" element={ <Manutencao/>} />
                 <Route path="*" element={ <Error/>} />
             </Routes>
         </BrowserRouter>

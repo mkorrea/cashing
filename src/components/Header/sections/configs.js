@@ -1,6 +1,5 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from 'react-router-dom';
-import UserContext from "../../../pages/Cadastro/UserContext";
 import { auth, db } from '../../../firebaseConnections'
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { getDoc, doc } from "firebase/firestore";
@@ -10,7 +9,6 @@ import ToggleOnIcon from "@mui/icons-material/ToggleOn";
 import { PersonRounded } from "@mui/icons-material";
 
 function Configs() {
-   // const { user, updateUser } = useContext(UserContext);
    const [openConfigs, setOpenConfigs] = useState(false);
    const navigate = useNavigate()
 

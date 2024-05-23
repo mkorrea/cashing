@@ -39,6 +39,8 @@ header {
    background-size: contain;
 }
 .logo-container:hover .img {
+   width: 34.5px;
+   margin-right: 10.5px;
    transform: rotate(360deg);
 }
 .logo-container h1 {
@@ -49,6 +51,7 @@ header {
    cursor: pointer;
    color: var(--color-basic-lighter);
 }
+
 
 
 /*       menus        */

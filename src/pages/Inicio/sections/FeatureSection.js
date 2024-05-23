@@ -22,14 +22,14 @@ function FeatureSection() {
                     </Link>
                 </div>
                 <div className='feature-button'>
-                    <Link to="/planilhas">
+                    <Link to="/manutencao">
                     <img src={require("../../../assets/icons/calculator.png")} alt='calculator'/>
                     <h2> Calculadora </h2>
                     <p>Calcule seus objetivos financeiros!</p>
                     </Link>
                 </div>
                 <div className='feature-button'>
-                    <Link to="/finances">
+                    <Link to="/manutencao">
                     <img src={require("../../../assets/icons/gear.png")} alt='settings'/>
                     <h2> Configurações </h2>
                     <p>Ajuste e personalize sua experiência!</p>

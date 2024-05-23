@@ -61,7 +61,7 @@ function Planilhas() {
 
    function newAnual() {
       const id = uuidv4();
-      navigate(`/anual/${id}`);
+      navigate(`/manutencao`);
    }
 
    return (

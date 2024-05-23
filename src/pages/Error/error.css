@@ -1,0 +1,15 @@
+main.error {
+   height: calc(100vh - 75px);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+main.error a {
+   margin-top: 20px;
+   text-decoration: none;
+   color: rgb(71, 94, 98);
+}
+main.error a:hover {
+   text-decoration: underline;
+}

@@ -1,0 +1,30 @@
+main.manutencao {
+   height: calc(100vh - 75px);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+main.manutencao a {
+   margin-top: 10px;
+   text-decoration: none;
+   color: rgb(71, 94, 98);
+}
+main.manutencao a:hover {
+   text-decoration: underline;
+}
+
+main.manutencao img {
+   margin-top: 50px;
+   width: 70px;
+   animation: spin 1.5s linear infinite;
+}
+
+@keyframes spin {
+   from {
+      transform: rotateZ(0deg);
+   }
+   to {
+      transform: rotateZ(360deg);
+   }
+}

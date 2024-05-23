@@ -1,13 +1,11 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import UserContext from "../../../pages/Cadastro/UserContext";
 
 import Configs from "./configs";
 
 function Menu() {
    const [active, setActive] = useState(null);
    const location = useLocation();
-   const { user } = useContext(UserContext);
 
 
 
