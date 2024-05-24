@@ -1,11 +1,14 @@
 import './style.css'
 import RoutesApp from './routes';
+import { ThemeProvider } from './contexts/ThemeContexts';
 
 function App() {
   return (
-      <div>
-        <RoutesApp/>
-      </div>
+      <ThemeProvider>
+         <div>
+           <RoutesApp/>
+         </div>
+      </ThemeProvider>
   );
 }
 

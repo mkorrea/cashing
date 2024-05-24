@@ -8,7 +8,7 @@
 
 body {
     font-family: var(--font-primary);
-    color: var(--color-text);
+    color: var(--text-color);
 }
 
 
@@ -108,7 +108,6 @@ article.welcome-container {
     display: flex;
     justify-content: end;
     align-items: center;
-    /* background-color: gray; */
 }
 article.welcome-container .welcome-text {
     width: 90%;
@@ -119,8 +118,10 @@ article.welcome-container .welcome-text {
     text-indent: 10px;
     text-align: end;
     border-radius: 10px;
-    color: var(--color-text);
     background-color: rgba(250, 255, 255, 0.19);
+}
+   .welcome-text p {
+   color: var(--text-color);
 }
 div.intro-background-container {
     position: absolute;
@@ -162,13 +163,12 @@ article.feature-section-title {
     width: 100%;
     margin-bottom: 20px;
     text-align: center;
-    /* background-color: antiquewhite; */
 }
 h1 {
    font-family: "Signika Negative", sans-serif;
     font-size: 2em;
     font-weight: bold;
-    color: var(--color-main);
+    color: var(--title-color);
 
 }
 article.buttons-wrapper {
@@ -182,11 +182,12 @@ article.buttons-wrapper {
     height: 95%;
     margin: 5px;
     position: relative;
-    background: linear-gradient(to bottom, transparent, rgba(250, 255, 255, 0.379), rgba(250, 255, 255, 0.901));
+    background: var(--background-secondary-color);
     box-shadow: 0px 0px 5px rgba(105, 129, 141, 0.057);
     border-radius: 10px;
     user-select: none;
-    transition: all .5s ease;
+    transition: all .5s ease, background var(--time-transition);
+    border: 1px solid var(--color-header-border);
 }
 .feature-button:hover {
     width: 270px;
@@ -211,13 +212,13 @@ article.buttons-wrapper {
 .feature-button h2 {
     width: 100%;
     text-align: center;
-    color: var(--color-main-darker);
+    color: var(--color-main-dark);
 }
 .feature-button p {
     width: 260px;
     padding: 10px;
     text-align: center;
-    color: var(--color-text);
+    color: var(--text-color);
 }
 
 
@@ -230,7 +231,7 @@ section.mission {
     padding: 20px;
     display: flex;
     justify-content: center;
-    background-color: #eff5f7c8;
+    background-color: var(--background-secondary-color);
 }
 section.mission .text {
     width: 60%;
@@ -238,7 +239,84 @@ section.mission .text {
 }
 section.mission p {
     text-align: center;
+    color: var(--text-color);
 }
 
 
 
+/*      Objetivo        */
+section.objetivo {
+   display: flex;
+   justify-content: center;
+}
+.objetivo .img-effect{
+   position: absolute;
+   width: 1600px;
+   height: 400px;
+   margin: 30px 15px;
+   border-radius: 15px;
+   border: 1px solid var(--background-secondary-color);
+   background: linear-gradient(to right, var(--background-primary-color) 40%, transparent, transparent);
+}
+.home-img {
+   width: 1600px;
+   height: 400px;
+   margin: 30px 15px;
+   object-fit: cover;
+   object-position: center 35%;
+   border-radius: 15px;
+   border: 1px solid var(--background-secondary-color);
+}
+.objetivo h2 {
+   position: absolute;
+   top: 115px;
+   left: 40px;
+}
+.objetivo p {
+   position: absolute;
+   top: 60%;
+   left: 40px;
+   transform: translateY(-50%);
+   width: 750px;
+   font-size: 27px;
+   
+}
+
+
+
+
+
+/*       FAQ       */
+section.faq {
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+   align-items: center;
+   margin-top: 30px;
+   margin-bottom: 15px;
+}
+.faq h3 {
+   width: 1200px;
+   height: 45px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin: 10px 0px;
+   text-align: center;
+   border-radius: 10px;
+   background-color: var(--background-secondary-color);
+}
+.faq p {
+   width: 1200px;
+   margin-bottom: 10px;
+   text-align: center;
+}
+.faq a {
+   text-decoration: none;
+   font-weight: bold;
+   color: #098286;
+}
+.faq a:hover {
+   color: #0cb3b8;
+   text-decoration: underline;
+}

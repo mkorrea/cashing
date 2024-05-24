@@ -163,7 +163,7 @@
    justify-content: space-between;
    padding-left: 5%;
    padding-right: 5%;
-   background-color: var(--color-basic-lighter);
+   background-color: var(--background-primary-color);
    box-shadow: 0px 1px 1px var(--color-basic-light);
 }
 .tabela header .logo-container .img {
@@ -174,7 +174,7 @@
 }
 .tabela header h1 {
    font-size: 27px;
-   color: var(--color-main);
+   color: #0cb3b8;
 }
 .tabela header a {
    color: var(--color-main-dark);
@@ -192,7 +192,7 @@
 }
 .tabela .settings .icon .MuiSvgIcon-root{
    font-size: 30px;
-   background-color: var(--color-basic-lighter);
+   background-color: var(--background-primary-color);
 }
 .tabela .configs {
    top: 50px;
@@ -224,18 +224,21 @@
    font-weight: bold;
    cursor: pointer;
    border-radius: 0px 0px 17px 17px;
-   background-color: rgba(229, 237, 237, 0.875);
-   box-shadow: inset 0px 3px 10px rgba(115, 139, 139, 0.621);
+   background-color: var(--background-tabela);
+   box-shadow: 0px 5px 10px rgba(115, 139, 139, 0.621);
    color: var(--color-basic-dark);
    backdrop-filter: blur(3px);
    border: none;
-   transition: ease all 200ms 70ms;
+   transition: 
+   height 200ms ease 70ms, 
+   box-shadow 200ms ease, 
+   color 400ms,
+   background var(--time-transition);
 }
 .tabela-menu button:hover {
    height: 30px;
    color: var(--color-main-darker);
-   box-shadow: 0px 0px 10px rgba(171, 207, 207, 0.261),
-   inset 0px 0px 10px rgba(115, 139, 139, 0.621);
+   box-shadow: 0px 6px 10px rgba(171, 207, 207, 0.369);
 }
 
 
@@ -250,15 +253,16 @@
    justify-content: center;
    flex-direction: column;
    border-radius: 15px;
-   background-color: rgba(238, 243, 243, 0.909);
+   background-color: var(--background-tabela);
    backdrop-filter: blur(3px);
    box-shadow: 0px 0px 18px rgba(171, 207, 207, 0.621);
+   transition: background var(--time-transition);
 }
 tr.linha-container {
    display: flex;
    flex-direction: row;
    justify-content: start;
-   color: black;
+   color: var(--main-text-color);
 }
 tr.linha-container th,td {
    height: 30px;
@@ -279,6 +283,7 @@ td input {
    border-bottom: none;
    border-left: 1px solid rgba(131, 131, 131, 0.22);
    border-right: 1px solid rgba(131, 131, 131, 0.22);
+   color: var(--text-color);
    background-color: transparent;
    outline: none;
 }
@@ -288,6 +293,7 @@ td select {
    top: 50%;
    transform: translateY(-50%);
    border: 1px solid rgba(131, 131, 131, 0.22);
+   color: var(--text-color);
    background-color: transparent;
    border-radius: 5px;
 }
@@ -334,7 +340,11 @@ td select:focus {
    text-align: center;
    border-radius: 8px;
 }
+td select.status {
+   color: #000;
+}
 td select option {
+   color: #000;
    display: flex;
    justify-content: center;
 }

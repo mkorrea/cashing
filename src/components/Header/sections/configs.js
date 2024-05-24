@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { auth, db } from '../../../firebaseConnections'
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { getDoc, doc } from "firebase/firestore";
+import { useTheme } from "../../../contexts/ThemeContexts";
 
 import ToggleOffIcon from "@mui/icons-material/ToggleOff";
 import ToggleOnIcon from "@mui/icons-material/ToggleOn";
@@ -15,6 +16,8 @@ function Configs() {
    const [ logado, setLogado ] = useState(false)
    const [ username, setUsername ] = useState('')
 
+   const { darkMode, toggleDarkMode } = useTheme(); 
+   
    useEffect( ()=>{
       async function checkLogin() {
          onAuthStateChanged(auth, (user)=>{
@@ -36,9 +39,6 @@ function Configs() {
 
 
 
-
-
-
    function handleSettings() {
       setOpenConfigs(!openConfigs);
    }
@@ -56,6 +56,8 @@ function Configs() {
          document.removeEventListener("mousedown", handleClickOutside);
       };
    }, []);
+
+
 
 
    async function handleLogout() {
@@ -82,10 +84,14 @@ function Configs() {
                <h3> <Link to='/login'> Entrar </Link> / <Link to='/Cadastro'> Cadastrar </Link></h3>
             }
 
-            
-            <div>
-               Modo escuro: <ToggleOffIcon /> <ToggleOnIcon />{" "}
-            </div>
+            <article className="opcoes">
+               <div>
+                  Sua conta
+               </div>
+               <div className="darkmode">
+                  Modo escuro: <span onClick={toggleDarkMode}> {darkMode ? <ToggleOnIcon /> :<ToggleOffIcon />}</span>
+               </div>
+            </article>
             <hr />
             <button className="sair" onClick={handleLogout}>Sair</button>
          </div>

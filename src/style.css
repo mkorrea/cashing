@@ -11,6 +11,30 @@
     --color-text:       #616161;
     --color-text-light: #7b7b7b; 
     --color-text-dark:  #1c1c1c;
+   --title-color: #0cb3b8;
+   --main-text-color: #000;
+   --text-color: #666666;
+
+   /*       COLORS         */
+   --background-primary-color: #fff;
+   --background-secondary-color: #e1e8eb84;
+   --background-tabela: rgba(238, 243, 243, 0.9);
+
+      /*       Main Pallette      */
+      --color-main-lighter: #8DF3F7;
+      --color-main-light:   #2CEBF2;
+      --color-main:         #0cb3b8;
+      --color-main-dark:    #098286;
+      --color-main-darker:  #054A4C;
+      
+      /*       Header       */
+      --color-header-border: transparent;
+      --logo-color: #fff;
+
+
+   --time-transition: 800ms;
+
+
 
     /*       Basic colors        */
     --color-basic-lighter: #ffffff;
@@ -20,11 +44,6 @@
     --color-basic-darker: #000000;
 
     --color-neutral: #ababab;
-    --color-main-lighter: #8DF3F7;
-    --color-main-light:   #2CEBF2;
-    --color-main:         #0cb3b8;
-    --color-main-dark:    #098286;
-    --color-main-darker:  #054A4C;
 
 
     /* 
@@ -65,7 +84,8 @@ div#root{
     min-height: 100vh;
 }
 body{
-    background-color: #ffffff;
+    background-color: var(--background-primary-color);
+    transition: background-color var(--time-transition);
 }
 main {
     width: 100%;

@@ -9,8 +9,9 @@ function FeatureSection() {
     return (
         <section className="feature-section">
             <article className="feature-section-title">
-                <h1>O que o {dados.nome} pode fazer ?</h1>
-                <p>Gerenciando financeiro e realizando sonhos!</p>
+                <h1>Funcionalidades Principais</h1>
+                <p>Nossa plataforma oferece diversas ferramentas para facilitar seu controle financeiro. </p>
+                <p>Aqui estão algumas das principais funcionalidades que você encontrará no <strong>Cashing</strong>:</p>
             </article>
 
             <article className='buttons-wrapper'>

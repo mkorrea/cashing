@@ -4,7 +4,7 @@ import Header from "../../components/Header";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { db } from '../../firebaseConnections';
-import { doc, collection, setDoc, onSnapshot, where, query } from "firebase/firestore";
+import { doc, collection, setDoc, updateDoc, onSnapshot, where, query } from "firebase/firestore";
 import { v4 as uuidv4 } from 'uuid';
 import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined';
 import EditRoundedIcon from '@mui/icons-material/EditRounded';
@@ -59,8 +59,22 @@ function Planilhas() {
       navigate(`/planilhas/tabela/${id}`);
    }
 
+   function editarPlanilha() {
+
+      alert('Função de editar indisponível no momento.')
+      // const docRef = doc(db, 'planilha')
+
+      // const tituloInput = document.querySelector('.add-titulo input');
+      // let docId = tituloInput.value.trim() || `planilha sem nome:${uuidv4()}`;
+      // setMostrarJanela(true)
+      // try {
+      //    await updateDoc(docRef, {
+      //    })
+      // }
+
+   }
+
    function newAnual() {
-      const id = uuidv4();
       navigate(`/manutencao`);
    }
 
@@ -79,33 +93,34 @@ function Planilhas() {
                </div>
             )}
 
-            <section className="intro-docs">
-               <h1>Planilhas</h1>
-               <span>Iniciar uma nova planilha</span>
+            <div className="intro-docs">
+               <section>
+                  <h1>Planilhas</h1>
+                  <span>Iniciar uma nova planilha</span>
                
-               <article className="docs-container">
-                  <div>
-                     <div className="new-doc" onClick={() => setMostrarJanela(true)}>
-                        <img src={require("../../assets/icons/plus.png")} alt="Adicionar planilha" />
+                  <article className="docs-container">
+                     <div>
+                        <div className="new-doc" onClick={() => setMostrarJanela(true)}>
+                           <img src={require("../../assets/icons/plus.png")} alt="Adicionar planilha" />
+                        </div>
+                        <span>Planilha em branco</span>
                      </div>
-                     <span>Planilha em branco</span>
-                  </div>
-
-                  <div>
-                     <div className="new-doc" onClick={newAnual}>
-                        <CalendarMonthOutlinedIcon />
+                     <div>
+                        <div className="new-doc" onClick={newAnual}>
+                           <CalendarMonthOutlinedIcon />
+                        </div>
+                        <span>Anual</span>
                      </div>
-                     <span>Anual</span>
-                  </div>
-               </article>
-            </section>
+                  </article>
+               </section>
+            </div>
 
             <section className="recent">
                <h2>Planilhas recentes</h2>
                <div className="recentes-container">
                   {planilhas.length > 0 ? planilhas.map((doc) => (
                      <div key={doc.id} className="doc-recente" onClick={() => abrirRecente(doc.id)}>
-                        <EditRoundedIcon />
+                        <EditRoundedIcon onClick={editarPlanilha} />
                         <span>{doc.id.startsWith('planilha sem nome') ? 'Planilha sem nome' : doc.id}</span>
                      </div>
                   )) : (
