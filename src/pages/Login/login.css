@@ -5,7 +5,7 @@
 
 .register-background{  
    min-height: 100vh;
-   background-color: rgb(245, 245, 245);
+   background-color: var(--background-secondary-color);
 }
 main.main-content {
    width: 20%;
@@ -15,7 +15,7 @@ main.main-content {
    top: 100px;
    border-radius: var(--border-radius);
    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.164);
-   background-color: #ffffff;
+   background-color: var(--background-primary-color);
 }
 
 
@@ -40,7 +40,7 @@ section.title-section .logo-container .img{
 }
 section.title-section .logo-container h1 {
    font-size: 30px;
-   color: var(--color-main);
+   color: var(--logo-color);
 }
 .title{
    margin-top: 10px;
@@ -77,9 +77,9 @@ form.cadastro .input-component {
    font-size: 17px;
    cursor: text;
    user-select: none;
-   border-radius: 2px;
+   border-radius: 100%;
    color: var(--color-neutral);
-   background-color: #ffffff;
+   background-color: var(--background-primary-color);
    transition: all 150ms ease;
 }
 .input-component input:not(:placeholder-shown) + label,
@@ -96,11 +96,12 @@ form.cadastro input {
    font-size: 18px;
    color: var(--color-text);
    border-radius: var(--border-radius);
-   border: 1px solid var(--color-basic-light);
+   border: 1px solid var(--background-secondary-color);
+   background-color: var(--background-primary-color);
 }
 form.cadastro input:focus {
-   border: 1px solid var(--color-main);
-   box-shadow: 0px 0px 2px var(--color-main);
+   border: 1px solid #0cb3b8;
+   box-shadow: 0px 0px 2px #0cb3b8;
    outline: none;
 }
 input.missmatch-password:focus {
@@ -172,11 +173,11 @@ form.cadastro .btn-cadastro {
    color: var(--color-main-darker);
 }
 
-.btn-voltar {
+.btn-voltar, .home-button {
    display: flex;
    justify-content: center;
    margin: 5px;
    text-decoration: none;
    cursor: pointer;
-   color: var(--color-main);
+   color: var(--logo-color);
 }
