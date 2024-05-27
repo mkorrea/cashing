@@ -1,4 +1,4 @@
-import './style.css'
+import './global.css'
 import RoutesApp from './routes';
 import { ThemeProvider } from './contexts/ThemeContexts';
 

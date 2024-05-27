@@ -26,21 +26,44 @@ footer .logo-container {
    opacity: .35;
 }
 
-footer .social {
+footer .sobre, .contato, .social {
+   margin-top: -35px;
    display: flex;
+   align-items: center;
    flex-direction: column;
+   font-weight: bold;
+   width: 30%;
+}
+
+footer .sobre p, .contato p {
+   margin-top: 15px;
+   font-size: 13px;
+   font-weight: normal;
+   color: #e7edef;
+}
+
+
+footer .contato {
+   font-weight: bold;
+}
+
+
+.social div {
+   display: flex;
 }
 footer .social a {
    text-decoration: none;
+   margin: 8px 12px;
    color: #fff;
    display: flex;
    align-items: center;
-   font-size: 17px;
+   font-size: 13px;
+   font-weight: normal;
 }
 .social a:hover {
    text-decoration: underline;
 }
 footer img {
-   width: 45px;
+   width: 40px;
    margin: 5px;
 }

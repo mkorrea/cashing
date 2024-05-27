@@ -8,6 +8,7 @@ import { useTheme } from "../../../contexts/ThemeContexts";
 import ToggleOffIcon from "@mui/icons-material/ToggleOff";
 import ToggleOnIcon from "@mui/icons-material/ToggleOn";
 import { PersonRounded } from "@mui/icons-material";
+import { Moon, User, ToggleRight, ToggleLeft } from "phosphor-react";
 
 function Configs() {
    const [openConfigs, setOpenConfigs] = useState(false);
@@ -86,10 +87,19 @@ function Configs() {
 
             <article className="opcoes">
                <div>
-                  Sua conta
+                  <User size={25}/> 
+                     Sua conta
                </div>
                <div className="darkmode">
-                  Modo escuro: <span onClick={toggleDarkMode}> {darkMode ? <ToggleOnIcon /> :<ToggleOffIcon />}</span>
+                  <Moon size={25}/> 
+                     Modo escuro: 
+                     <span 
+                        onClick={
+                           toggleDarkMode}> {darkMode ? 
+                              <ToggleRight size={31}/> :
+                              <ToggleLeft size={31}/> 
+                           }
+                     </span>
                </div>
             </article>
             <hr />

@@ -193,6 +193,7 @@ article.buttons-wrapper {
     width: 270px;
     transition-delay: .0.5s;
     box-shadow: 0px 0px 10px #69818d21;
+    filter: brightness(1.2);
 }
 .feature-button:active {
     box-shadow: 8px 8px 15px #69818d19;
@@ -227,10 +228,12 @@ article.buttons-wrapper {
 /*  section  */
 section.mission {
     width: 100%;
-    height: 350px;
+    height: 250px;
     padding: 20px;
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
     background-color: var(--background-secondary-color);
 }
 section.mission .text {
@@ -240,6 +243,24 @@ section.mission .text {
 section.mission p {
     text-align: center;
     color: var(--text-color);
+}
+
+section.mission a {
+   margin-top: 30px;
+   padding: 10px 20px;
+   text-decoration: none;
+   font-size: 20px;
+   font-weight: bold;
+   border-radius: 8px;
+   border: 3px solid var(--background-secondary-color);
+   outline: 3px solid #0cb3b8;
+   color: var(--title-color);
+   transition: background 200ms, color 200ms;
+}
+
+section.mission a:hover {
+   background-color: #0cb3b8;
+   color: #fff;
 }
 
 
@@ -252,14 +273,17 @@ section.objetivo {
 .objetivo .img-effect{
    position: absolute;
    width: 1600px;
+   max-width: 95%;
    height: 400px;
    margin: 30px 15px;
    border-radius: 15px;
    border: 1px solid var(--background-secondary-color);
-   background: linear-gradient(to right, var(--background-primary-color) 40%, transparent, transparent);
+   background: linear-gradient(to right, var(--background-primary-color) 35%, transparent 80%, transparent, transparent);
+   transition: all var(--time-transition);
 }
 .home-img {
    width: 1600px;
+   max-width: 95%;
    height: 400px;
    margin: 30px 15px;
    object-fit: cover;
@@ -269,17 +293,21 @@ section.objetivo {
 }
 .objetivo h2 {
    position: absolute;
-   top: 115px;
-   left: 40px;
+   top: 90px;
+   left: 30px;
+   font-size: 22px;
+   text-shadow: 0.5px 0.5px 1px rgba(22, 22, 22, 0.898)
 }
 .objetivo p {
    position: absolute;
-   top: 60%;
-   left: 40px;
+   top: 65%;
+   left: 30px;
    transform: translateY(-50%);
-   width: 750px;
-   font-size: 27px;
-   
+   width: 600px;
+   max-width: 55%;
+   font-size: 21px;
+   text-shadow: 1px 1px 1px rgba(39, 39, 39, 0.488);
+
 }
 
 

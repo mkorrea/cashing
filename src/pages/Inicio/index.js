@@ -6,14 +6,18 @@ import FeatureSection from "./sections/FeatureSection";
 import "./inicio.css";
 import { Link } from "react-router-dom";
 
+import PerfectScrollbar from 'react-perfect-scrollbar';
+import 'react-perfect-scrollbar/dist/css/styles.css';
+
 function Inicio() {
 
 
    return (
-      <div>
+      <div className="home">
          <Header />
 
          <main>
+            <PerfectScrollbar className="scrollbar">
             <IntroSection />
             <FeatureSection />
             <section className="mission">
@@ -25,6 +29,7 @@ function Inicio() {
                      hábitos de consumo de maneira clara e concisa.
                   </p>
                </div>
+                  <Link to='/cadastro'>Cadastre-se</Link>
             </section>
 
             <section className="objetivo">
@@ -52,6 +57,7 @@ function Inicio() {
                <h3> "Como posso começar a usar o Cashing ?" </h3>
                <p> - Faça seu <Link to='/cadastro'> cadastro</Link> e acesse nossas funcionalidades para gerenciar suas finanças! </p>
             </section>
+            </PerfectScrollbar>
          </main>
 
          <Footer />

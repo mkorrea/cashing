@@ -4,7 +4,7 @@ import Header from "../../../components/Header";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { db } from "../../../firebaseConnections";
-import { doc, collection, addDoc, getDocs, setDoc, updateDoc, deleteDoc,} from "firebase/firestore";
+import { doc, collection, addDoc, getDocs, setDoc, updateDoc, deleteDoc, getDoc,} from "firebase/firestore";
 import { IconButton } from "@mui/material";
 import DeleteOutlineRoundedIcon from "@mui/icons-material/DeleteOutlineRounded";
 import DeleteRoundedIcon from "@mui/icons-material/DeleteRounded";
@@ -77,6 +77,26 @@ function Tabela() {
          document.removeEventListener("mousedown", handleClickOutside);
       };
    }, []);
+
+
+      // carregar background
+      useEffect(()=>{
+         async function loadBackground() {
+            const docRef = doc(db, 'planilha', idDaPlanilha, 'tabela', 'background')
+            await getDoc(docRef)
+            .then((snapshot) => {
+               console.log(snapshot)
+               console.log(snapshot.data().background)
+               setBackground(snapshot.data().background)
+            })
+            .catch ((error) => {
+               console.log('erro ao carregar background: ' + error)
+            })
+         }
+         loadBackground()
+         
+      }, [])
+      
 
 
    if(loading) {
