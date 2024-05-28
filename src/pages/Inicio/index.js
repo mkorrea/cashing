@@ -48,14 +48,20 @@ function Inicio() {
             <section className="faq">
                <h1>FAQ</h1>
 
-               <h3>"O que é uma planilha financeira?"</h3>
-               <p> - Uma planilha financeira é uma ferramenta utilizada para organizar e gerenciar informações relacionadas às finanças pessoais ou empresariais. Ela permite registrar receitas, despesas, investimentos e outros dados financeiros de forma organizada e acessível.</p>
+               <div>
+                  <h3>"O que é uma planilha financeira?"</h3>
+                  <p> - Uma planilha financeira é uma ferramenta utilizada para organizar e gerenciar informações relacionadas às finanças pessoais ou empresariais. Ela permite registrar receitas, despesas, investimentos e outros dados financeiros de forma organizada e acessível.</p>
+               </div>
 
-               <h3>Por que devo usar uma planilha financeira?</h3>
-               <p>Uma planilha financeira ajuda a controlar gastos, planejar orçamentos, e monitorar o fluxo de caixa, proporcionando uma gestão financeira mais eficiente.</p>
+               <div>
+                  <h3>Por que devo usar uma planilha financeira?</h3>
+                  <p>Uma planilha financeira ajuda a controlar gastos, planejar orçamentos, e monitorar o fluxo de caixa, proporcionando uma gestão financeira mais eficiente.</p>
+               </div>
 
-               <h3> "Como posso começar a usar o Cashing ?" </h3>
-               <p> - Faça seu <Link to='/cadastro'> cadastro</Link> e acesse nossas funcionalidades para gerenciar suas finanças! </p>
+               <div>
+                  <h3> "Como posso começar a usar o Cashing ?" </h3>
+                  <p> - Faça seu <Link to='/cadastro'> cadastro</Link> e acesse nossas funcionalidades para gerenciar suas finanças! </p>
+               </div>
             </section>
             </PerfectScrollbar>
          </main>

@@ -316,7 +316,7 @@ li.active:hover .bar {
    .menu-lateral .opcoes {
       flex-direction: column;
    }
-   .menu-lateral .configs h2, h3 {
+   .menu-lateral .configs h2, .configs h3 {
       order: 1;
       color: #fff;
    }
