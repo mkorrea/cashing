@@ -22,7 +22,6 @@ function Tabela() {
    const [ imagens, setImagens ] = useState([])
    const [ bgOpen, setBgOpen ] = useState(false)
    const [ background, setBackground ] = useState('')
-   const [ searchQuery, setSearchQuery ] = useState('')
 
    useEffect(() => {
       const carregarDados = async () => {
@@ -144,7 +143,6 @@ function Tabela() {
 
 
    async function handleSearchChange(query) {
-      setSearchQuery(query)
 
       if(query.length > 2) {
          try {

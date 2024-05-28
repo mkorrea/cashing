@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useTheme } from "../../../contexts/ThemeContexts";
 
 function Logo() {
-   const { darkMode, toggleDarkMode } = useTheme(); 
+   const { darkMode } = useTheme(); 
     
    return (
       <section className="logo-container">

@@ -4,7 +4,7 @@ import Header from "../../components/Header";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { db } from '../../firebaseConnections';
-import { doc, collection, setDoc, updateDoc, onSnapshot, where, query } from "firebase/firestore";
+import { doc, collection, setDoc, onSnapshot, where, query } from "firebase/firestore";
 import { v4 as uuidv4 } from 'uuid';
 import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined';
 import EditRoundedIcon from '@mui/icons-material/EditRounded';
