@@ -38,7 +38,7 @@ function Planilhas() {
 
          return () => unsub();
       }
-   }, []);
+   }, [planilhas]);
 
    // Adicionar nova planilha
    async function abrirDoc() {

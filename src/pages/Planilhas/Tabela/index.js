@@ -94,7 +94,7 @@ function Tabela() {
          }
          loadBackground()
          
-      }, [])
+      })
       
 
 
@@ -226,7 +226,7 @@ function Tabela() {
                         <div key={img.id} onClick={() => mudarFundo(img.urls?.full) }>
                            <div className="img-container">
                               <img src={img.urls?.thumb} alt="imagem unsplash"/>
-                              <span> <a href={img.links.html} target="_blank"> {img.user.name}</a> </span>
+                              <span> <a href={img.links.html} target="_blank" rel="noreferrer"> {img.user.name}</a> </span>
                            </div>
                         </div>
                      )
