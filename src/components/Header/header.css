@@ -164,20 +164,14 @@ li.active:hover .bar {
    flex-direction: column;
    gap: 14px;
 }
-.configs .MuiSvgIcon-root{
-   font-size: 35px;
-   cursor: pointer;
-}
 .closed {
    opacity: 0;
    margin-top: -75px;
-   /* scale: 50%; */
    transform: scaleY(0%);
 }
 .opened {
    opacity: 1;
    margin-top: 0px;
-   /* scale: 100%; */
    transform: scaleY(100%);
 }
 .opened h2 {
@@ -199,7 +193,7 @@ li.active:hover .bar {
    gap: 10px;
 }
 
-.opened .darkmode {
+.darkmode {
    position: relative;
 }
 .darkmode span {
@@ -220,4 +214,116 @@ li.active:hover .bar {
    border: none;
    border-radius: 3px;
    cursor: pointer;
+}
+
+.menu-icon {
+   display: none;
+}
+.menu-lateral {
+   display: none;
+}
+
+
+.funcao-desativada {
+   opacity: 0.3;
+}
+
+
+
+@media (max-width: 768px) {
+   header .menu {
+      display: none;
+   }
+   
+
+   .menu-icon {
+      display: flex;
+      cursor: pointer;
+      position: absolute;
+      left: 20px;
+   }
+   .menu-lateral {
+      height: calc(100vh - 75px);
+      width: calc(70% - 50px);
+      bottom: 0;
+      left: 0;
+      display: flex;
+      position: fixed;
+      z-index: 2;
+      background-color: var(--color-main);
+      border-right: 1px solid var(--background-secondary-color);
+      box-shadow: 2px 0px 2px var(--background-secondary-color);
+      transition: transform 500ms;
+   }
+   .menu-lateral.fechado {
+      transform: translateX(-100%);
+   }
+   .menu-lateral .menu {
+      flex-direction: column;
+      width: 100%;
+      margin-top: 15px;
+   }
+   .menu-lateral li {
+      width: 100%;
+      margin: 5px 0px;
+      padding: 15px 0px;
+   }
+   .menu-lateral li a {
+      width: 100%;
+      height: 100%;
+   }
+
+
+
+
+   /* configs */
+ 
+   .settings .icon {
+      display: none;
+   }
+
+
+   .menu-lateral .closed {
+      opacity: 1;
+      margin-top: 0px;
+      transform: scaleY(100%);
+   }
+   .menu-lateral .opened {
+      opacity: 1;
+   }
+   .menu-lateral .settings {
+      position: absolute;
+      bottom: 30px;
+   }
+   .menu-lateral .configs {
+      width: 100%;
+      height: 250px;
+      padding: 15px;
+      top: -180px;
+      color: var(--text-color);
+      background-color: var(--background-primary-color);
+      box-shadow: 0px 3px 6px var(--background-secondary-color);
+   
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      gap: 14px;
+
+      background-color: transparent;
+   }
+   .menu-lateral .opcoes {
+      flex-direction: column;
+   }
+   .menu-lateral .configs h2, h3 {
+      order: 1;
+      color: #fff;
+   }
+   .menu-lateral .configs hr {
+      order: 2;
+   }
+   .menu-lateral .configs .sair {
+      order: 3;
+      color: #c4c4c4; 
+   } 
+
 }

@@ -67,3 +67,10 @@ footer img {
    width: 40px;
    margin: 5px;
 }
+
+
+@media (max-width: 768px) {
+   .social div {
+      flex-direction: column;
+   }
+}

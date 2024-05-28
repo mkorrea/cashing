@@ -5,10 +5,8 @@ import { onAuthStateChanged, signOut } from "firebase/auth";
 import { getDoc, doc } from "firebase/firestore";
 import { useTheme } from "../../../contexts/ThemeContexts";
 
-import ToggleOffIcon from "@mui/icons-material/ToggleOff";
-import ToggleOnIcon from "@mui/icons-material/ToggleOn";
 import { PersonRounded } from "@mui/icons-material";
-import { Moon, User, ToggleRight, ToggleLeft } from "phosphor-react";
+import { Moon, User, ToggleRight, ToggleLeft, GearSix } from "phosphor-react";
 
 function Configs() {
    const [openConfigs, setOpenConfigs] = useState(false);
@@ -46,7 +44,7 @@ function Configs() {
 
    useEffect(() => {
       function handleClickOutside(event) {
-         const settingsContainer = document.querySelector(".settings");
+         const settingsContainer = document.querySelector("header .settings");
          if (settingsContainer && !settingsContainer.contains(event.target)) {
             setOpenConfigs(false);
          }
@@ -86,9 +84,13 @@ function Configs() {
             }
 
             <article className="opcoes">
-               <div>
+               <div className="funcao-desativada">
                   <User size={25}/> 
                      Sua conta
+               </div>
+               <div className="funcao-desativada">
+                  <GearSix size={25} />
+                     Configurações
                </div>
                <div className="darkmode">
                   <Moon size={25}/> 
