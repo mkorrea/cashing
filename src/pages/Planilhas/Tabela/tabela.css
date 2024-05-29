@@ -245,6 +245,7 @@
 /*          tabela          */
 .tabela-container {
    width: fit-content;
+   max-width: 95%;
    padding: 20px 45px;
    position: relative;
    top: 65px;
@@ -258,6 +259,7 @@
    transition: background var(--time-transition);
 }
 tr.linha-container {
+   max-width: 100%;
    display: flex;
    flex-direction: row;
    justify-content: start;
@@ -415,5 +417,66 @@ button.MuiIconButton-root:hover .delete-icon {
    }
    to {
       transform: rotate(360deg)
+   }
+}
+
+
+
+
+@media (max-width: 768px) {
+   .tabela-container {
+      max-width: 100%;
+      padding: 20px 5px;
+      border-radius: 4px;
+   }
+   thead tr, td {
+      width: 95vw;
+   }
+   thead th{
+      max-width: 100%;
+      background-color: #0cb3b8;
+   }
+   th {
+      width: 100%;
+      font-size: 0.8rem;
+   }
+   tr {
+      display: flex;
+   }
+   td  {
+      width: 100%;
+      height: 40px;
+      border-bottom: 1px solid rgba(131, 131, 131, 0.22);
+   }
+   td input {
+      font-size: 0.6rem;
+      height: 100%;
+      padding-left: 8px;
+      padding-right: 8px;
+      background: #8e5b5b9c;
+   }
+   select {
+      width: 100%;
+   }
+   .data {
+      width: 10%;
+   }
+   .descricao {
+      width: 45%;
+   }
+   .descricao:focus{
+      font-size: 0.7rem;
+   }
+   .categoria {
+      width: 15%;
+      text-align: center;
+      border: none;
+   }
+   .valor {
+      width: 20%;
+      border-right: none;
+   }
+   .status {
+      width: 10%;
    }
 }
