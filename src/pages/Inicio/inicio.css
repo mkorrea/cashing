@@ -108,8 +108,9 @@ article.buttons-wrapper {
 }
 .feature-button {
     width: 250px;
-    height: 95%;
-    margin: 5px;
+    height: 85%;
+    margin: 5px 10px;
+    padding: 10px 0px;
     position: relative;
     background: var(--background-secondary-color);
     box-shadow: 0px 0px 5px rgba(105, 129, 141, 0.057);
@@ -156,7 +157,7 @@ article.buttons-wrapper {
 /*  section  */
 section.mission {
     width: 100%;
-    height: 250px;
+    height: 200px;
     padding: 20px;
     display: flex;
     justify-content: center;
@@ -335,6 +336,8 @@ section.faq {
       width: 95%;
       height: 250px;
       padding: 10px;
+      margin-bottom: 60px;
+      margin-top: 30px;
   }
   article.login-container {
       width: 80%;
@@ -357,6 +360,9 @@ section.faq {
 
 
 
+  .feature-section {
+    margin-bottom: 60px;
+  }
 
    article.buttons-wrapper {
       flex-direction: column;
@@ -364,7 +370,9 @@ section.faq {
   }
    .feature-button {
       width: 100%;
-      height: 95%;
+      min-height: 100px;
+      max-height: 100px;
+      margin: 10px 0px;
       transition: width .5s ease, background var(--time-transition);
    }
    .feature-button:hover {
@@ -381,6 +389,10 @@ section.faq {
       margin-left: 20px;
    }
 
+
+   .mission {
+    
+   }
    
 
    .objetivo .img-effect{

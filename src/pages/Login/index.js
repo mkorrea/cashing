@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Logo from "../../components/Header/sections/logo";
 import { auth } from '../../firebaseConnections'
 import { signInWithEmailAndPassword } from 'firebase/auth'
+import { Password } from "phosphor-react";
 
 
 export default function Login() {
@@ -26,6 +27,7 @@ export default function Login() {
          console.log('Erro ao fazer login, verifique as informações')
       })
    }  
+
 
    function CompleteCheck() {
       return email && senha
